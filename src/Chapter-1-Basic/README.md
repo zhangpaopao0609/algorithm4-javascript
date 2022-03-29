@@ -5,15 +5,18 @@
 那本次课程从第一章中挑选了一些重点的小节来跟大家分享，具体如下：
 
 1. 数组 —— 基础知识
+   - 基础语法
+   - 背包、队列和栈
 2. 二分查找 —— 算法的初步感受
    - 算法的初步学习
    - leetcode 题目
-3. 背包、队列和栈 —— 算法的基础
-   - 实现
+3. 链表 —— 算法的基础
    - 链表
    - leetcode 题目
 
 ## 2. 数组
+
+### 2.1 基础语法
 
 1. 创建并初始化数组
 
@@ -47,7 +50,89 @@
    console.log(arr, cut);	// [1, 4, 5] [4, 5]
    ```
 
+
+### 2.2 背包、队列和栈
+
+1. map 存储
+
+   ```js
+   // 模拟背包
+   class Bag {
+     constructor() {
+       this.bag = new Map();
+     }
    
+     add(key, value) {
+       this.bag.set(key, value);
+     }
+   
+     size() {
+       return this.bag.size;
+     }
+   
+     isEmpty() {
+       return !this.bag.size;
+     }
+   }
+   ```
+
+2. 先进先出 —— FIFO
+
+    ```js
+    // 模拟队列
+    class Queue {
+      constructor() {
+        this.queue = [];
+      }
+    
+      enqueuq(value) {
+        return this.queue.push(value);
+      }
+    
+      dequeue() {
+        return this.queue.shift();
+      }
+    
+      size() {
+        return this.queue.length;
+      }
+    
+      isEmpty() {
+        return !this.queue.length;
+      }
+    }
+    ```
+
+
+
+  3. 后进先出 —— LIFO
+
+      ```js
+      // 模拟栈
+      class Stack {
+        constructor() {
+          this.stack = [];
+        }
+      
+        push(value) {
+          return this.stack.push(value);
+        }
+      
+        pop() {
+          return this.stack.pop();
+        }
+      
+        size() {
+          return this.stack.length;
+        }
+      
+        isEmpty() {
+          return !this.stack.length;
+        }
+      }
+      ```
+
+
 
 ## 3. 二分查找
 
@@ -132,3 +217,34 @@
 
 
 ## 3. 链表
+
+定义：链表是一种递归的数据结构，它或者为空（null），或者指向一个节点（node）的引用，该节点含有一个泛型的元素和一个指向另一条链表的引用。
+
+> 泛型：任意类型数据
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
