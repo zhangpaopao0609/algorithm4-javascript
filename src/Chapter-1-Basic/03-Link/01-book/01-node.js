@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-let first = new Node('1');
+const first = new Node('1');
 const second = new Node('2');
 const third = new Node('3');
 
@@ -13,7 +13,7 @@ first.next = second;
 second.next = third;
 
 console.log(JSON.stringify(first, null, 2));
-console.log('-------------------------------------');
+console.log('\n*******************************************************\n');
 
 // {
 //   "value": "1",
@@ -25,3 +25,8 @@ console.log('-------------------------------------');
 //     }
 //   }
 // }
+
+module.exports = { 
+  Node,
+  link: first, 
+};
