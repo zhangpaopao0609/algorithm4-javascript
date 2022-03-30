@@ -5,9 +5,9 @@ class Node {
   }
 }
 
-let first = new Node('to');
-const second = new Node('be');
-const third = new Node('or');
+let first = new Node('1');
+const second = new Node('2');
+const third = new Node('3');
 
 first.next = second;
 second.next = third;
@@ -17,8 +17,15 @@ console.log('\n************************************************************\n');
 
 function deleteNodeAtHead(link) {
   link.value = null;
-  link = link.next;
+  return link.next;
 }
 
-deleteNodeAtHead(first);
+first = deleteNodeAtHead(first);
 console.log(JSON.stringify(first, null, 2));
+// {
+//   "value": "2",
+//   "next": {
+//     "value": "3",
+//     "next": null
+//   }
+// }

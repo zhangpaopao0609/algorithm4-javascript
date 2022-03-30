@@ -5,9 +5,9 @@ class Node {
   }
 }
 
-let first = new Node('to');
-const second = new Node('be');
-const third = new Node('or');
+let first = new Node('1');
+const second = new Node('2');
+const third = new Node('3');
 
 first.next = second;
 second.next = third;
@@ -23,6 +23,20 @@ function insertNodeInTail(link, node) {
   p.next = node;
 }
 
-const insert = new Node('insertInTail');
+const insert = new Node('4');
 insertNodeInTail(first, insert);
 console.log(JSON.stringify(first, null, 2));
+
+// {
+//   "value": "1",
+//   "next": {
+//     "value": "2",
+//     "next": {
+//       "value": "3",
+//       "next": {
+//         "value": "4",
+//         "next": null
+//       }
+//     }
+//   }
+// }
