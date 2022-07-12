@@ -12,8 +12,8 @@ function BinarySearch(arr, left, right, key) {
 }
 
 function main(arr, key) {
-  return BinarySearch(arr, 0, arr.length - 1, key)
-};
+  return BinarySearch(arr, 0, arr.length - 1, key);
+}
 
 const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
 

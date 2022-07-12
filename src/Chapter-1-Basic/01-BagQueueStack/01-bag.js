@@ -25,6 +25,6 @@ class Bag {
 }
 
 const b = new Bag();
-b.add(1, 2)
+b.add(1, 2);
 
 console.log(b, b.size(), b.isEmpty());

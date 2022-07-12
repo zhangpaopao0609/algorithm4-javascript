@@ -3,7 +3,7 @@ let first = link;
 
 function insertNodeInTail(link, node) {
   let p = link;
-  while(p.next !== null) {
+  while (p.next !== null) {
     p = p.next;
   }
   p.next = node;

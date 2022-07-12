@@ -5,7 +5,8 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "docs:serve": "vitepress serve docs",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,15 @@
   },
   "homepage": "https://github.com/ardor-zhang/Algorithm4-Javascript#readme",
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "vitepress": "^1.0.0-alpha.4",
     "vue": "^3.2.37"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

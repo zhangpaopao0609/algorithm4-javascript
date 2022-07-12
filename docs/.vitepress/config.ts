@@ -1,16 +1,16 @@
-import { defineConfig } from "vitepress";
+import { defineConfig } from 'vitepress';
 
-import { version } from "../../package.json";
+import { version } from '../../package.json';
 
 export default defineConfig({
-  lang: "zh-ch",
-  title: "Algorithm 4",
-  description: "Algorithm 4 by JavaScript.",
+  lang: 'zh-ch',
+  title: 'Algorithm 4',
+  description: 'Algorithm 4 by JavaScript.',
 
   lastUpdated: true,
 
   themeConfig: {
-    siteTitle: "Algorithm 4",
+    siteTitle: 'Algorithm 4',
     // logo: "/assets/logo/logo.png",
 
     nav: nav(),
@@ -18,20 +18,20 @@ export default defineConfig({
     sidebar: sidebar(),
 
     editLink: {
-      pattern: "xxx/:path",
-      text: "Edit this page on GitHub",
+      pattern: 'xxx/:path',
+      text: 'Edit this page on GitHub',
     },
 
     socialLinks: [
       {
-        icon: "github",
-        link: "https://github.com/ardor-zhang/Algorithm4-Javascript",
+        icon: 'github',
+        link: 'https://github.com/ardor-zhang/Algorithm4-Javascript',
       },
     ],
 
     footer: {
-      message: "Released under the MIT License.",
-      copyright: "Copyright © 2022-present Ardor Zhang",
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2022-present Ardor Zhang',
     },
 
     // algolia: {
@@ -44,10 +44,10 @@ export default defineConfig({
 
 function nav() {
   return [
-    { text: "Ardor", link: "/ardor" },
+    { text: 'Ardor', link: '/ardor' },
     {
-      text: "github",
-      link: "",
+      text: 'github',
+      link: '',
     },
   ];
 }
@@ -55,19 +55,19 @@ function nav() {
 function sidebar() {
   return [
     {
-      text: "介绍",
+      text: '介绍',
       collapsible: true,
       items: [
-        { text: "算法的重要性", link: "/guide/" },
-        { text: "目录", link: "/guide/one" },
+        { text: '算法的重要性', link: '/guide/' },
+        { text: '目录', link: '/guide/one' },
       ],
     },
     {
-      text: "第一章",
+      text: '第一章',
       collapsible: true,
       items: [
-        { text: "基础", link: "/chapter-01/" },
-        { text: "二分", link: "/chapter-01/one" },
+        { text: '基础', link: '/chapter-01/' },
+        { text: '二分', link: '/chapter-01/one' },
       ],
     },
   ];

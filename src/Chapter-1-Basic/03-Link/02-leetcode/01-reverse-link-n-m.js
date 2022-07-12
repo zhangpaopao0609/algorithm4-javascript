@@ -4,7 +4,7 @@ const { Node, link } = require('./00-node');
 let first = link;
 
 // 反转链表
-function reverseLink (head) {
+function reverseLink(head) {
   let curr = null;
   let prev = head;
   while (prev) {
@@ -12,15 +12,15 @@ function reverseLink (head) {
     prev.next = curr;
     curr = prev;
     prev = next;
-  };
+  }
 }
 
 function reverseBetweenNM(head, left, right) {
-  const dummyNode = new Node(-1, head);  // 虚拟头结点
-  let preLeft = dummyNode;  // 左截断结点前一个结点
-  let leftNode = null;  // 左截断结点
+  const dummyNode = new Node(-1, head); // 虚拟头结点
+  let preLeft = dummyNode; // 左截断结点前一个结点
+  let leftNode = null; // 左截断结点
   let rightNode = null; // 右截断结点
-  let afterRight = null;  // 右截断结点后一个结点
+  let afterRight = null; // 右截断结点后一个结点
   // 1. 获取左截断结点前一个结点
   for (let i = 0; i < left - 1; i++) {
     preLeft = preLeft.next;
@@ -49,8 +49,8 @@ function reverseBetweenNM(head, left, right) {
 // console.log(JSON.stringify(reverseBetweenNM(first, 2, 4), null, 2));
 
 function reverseBetweenNMBetter(head, left, right) {
-  const dummyNode = new Node(-1, head);  // 虚拟头结点
-  let preLeft = dummyNode;  // 左截断结点前一个结点
+  const dummyNode = new Node(-1, head); // 虚拟头结点
+  let preLeft = dummyNode; // 左截断结点前一个结点
 
   for (let i = 0; i < left - 1; i++) {
     preLeft = preLeft.next;
@@ -73,8 +73,8 @@ function reverseBetweenNMBetter(head, left, right) {
 }
 
 function reverseBetweenNMPerfect(head, left, right) {
-  const dummyNode = new Node(-1, head);  // 虚拟头结点
-  let preLeft = dummyNode;  // 左截断结点前一个结点
+  const dummyNode = new Node(-1, head); // 虚拟头结点
+  let preLeft = dummyNode; // 左截断结点前一个结点
 
   for (let i = 0; i < left - 1; i++) {
     preLeft = preLeft.next;
@@ -89,7 +89,7 @@ function reverseBetweenNMPerfect(head, left, right) {
     leftNode = next;
   }
 
-  preLeft.next = leftNode
+  preLeft.next = leftNode;
 
   return dummyNode.next;
 }

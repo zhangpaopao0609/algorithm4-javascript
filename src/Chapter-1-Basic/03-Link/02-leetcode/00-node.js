@@ -19,7 +19,7 @@ four.next = five;
 console.log(JSON.stringify(first, null, 2));
 console.log('\n*******************************************************\n');
 
-module.exports = { 
+module.exports = {
   Node,
-  link: first, 
+  link: first,
 };

@@ -1,5 +1,5 @@
 class Node {
-  constructor(value= null, next = null) {
+  constructor(value = null, next = null) {
     this.value = value;
     this.next = next;
   }
@@ -13,7 +13,8 @@ class QueueByLink {
     this._size = 0;
   }
 
-  enqueuq(value) {  // 链尾添加
+  enqueuq(value) {
+    // 链尾添加
     if (this._size === 0) {
       this.last = new Node(value, null);
       this.link = this.last;
@@ -25,7 +26,8 @@ class QueueByLink {
     this._size += 1;
   }
 
-  dequeuq() { // 链头删除
+  dequeuq() {
+    // 链头删除
     if (this._size !== 0) {
       this._size -= 1;
       const value = this.link.value;
@@ -45,9 +47,9 @@ class QueueByLink {
 }
 
 const q = new QueueByLink();
-q.enqueuq(1)
-q.enqueuq(2)
-q.enqueuq(3)
+q.enqueuq(1);
+q.enqueuq(2);
+q.enqueuq(3);
 
 console.log(q);
 

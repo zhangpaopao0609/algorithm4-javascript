@@ -1,6 +1,7 @@
 # 第一章 基础
 
 ## 1. 前言
+
 第一章介绍了一些基础的知识，为后续的章节做铺垫。
 那本次课程从第一章中挑选了一些重点的小节来跟大家分享，具体如下：
 
@@ -22,34 +23,31 @@
 
    ```js
    const arr = [1, 2, 3];
-   
+
    const arr = [];
    arr[0] = 1;
    arr[1] = 2;
-   
+
    const arr = Array.of(3, 11, 8); // [3, 11, 8]
    const arr = Array(4).fill(7); // [7, 7, 7, 7]
    ```
 
-   
-
 2. 数组的基本属性和方法
 
    ```js
-   const len = arr.length
-   
-   const arrNew = arr1.concat(arr2)
-   
-   const arrNew = arr1.join('xxxx')
-   
-   const arrNew = arr1.slice(index, count) 
-   
-   arr1.splice(index, count, ...args)
-   const arr = [1, 2, 3]
-   const cut = arr.splice(1, 2, 4, 5)
-   console.log(arr, cut);	// [1, 4, 5] [4, 5]
-   ```
+   const len = arr.length;
 
+   const arrNew = arr1.concat(arr2);
+
+   const arrNew = arr1.join('xxxx');
+
+   const arrNew = arr1.slice(index, count);
+
+   arr1.splice(index, count, ...args);
+   const arr = [1, 2, 3];
+   const cut = arr.splice(1, 2, 4, 5);
+   console.log(arr, cut); // [1, 4, 5] [4, 5]
+   ```
 
 ### 2.2 背包、队列和栈
 
@@ -61,15 +59,15 @@
      constructor() {
        this.bag = new Map();
      }
-   
+
      add(key, value) {
        this.bag.set(key, value);
      }
-   
+
      size() {
        return this.bag.size;
      }
-   
+
      isEmpty() {
        return !this.bag.size;
      }
@@ -78,61 +76,57 @@
 
 2. 先进先出 —— FIFO
 
-    ```js
-    // 模拟队列
-    class Queue {
-      constructor() {
-        this.queue = [];
-      }
-    
-      enqueuq(value) {
-        return this.queue.push(value);
-      }
-    
-      dequeue() {
-        return this.queue.shift();
-      }
-    
-      size() {
-        return this.queue.length;
-      }
-    
-      isEmpty() {
-        return !this.queue.length;
-      }
-    }
-    ```
+   ```js
+   // 模拟队列
+   class Queue {
+     constructor() {
+       this.queue = [];
+     }
 
+     enqueuq(value) {
+       return this.queue.push(value);
+     }
 
+     dequeue() {
+       return this.queue.shift();
+     }
 
-  3. 后进先出 —— LIFO
+     size() {
+       return this.queue.length;
+     }
 
-      ```js
-      // 模拟栈
-      class Stack {
-        constructor() {
-          this.stack = [];
-        }
-      
-        push(value) {
-          return this.stack.push(value);
-        }
-      
-        pop() {
-          return this.stack.pop();
-        }
-      
-        size() {
-          return this.stack.length;
-        }
-      
-        isEmpty() {
-          return !this.stack.length;
-        }
-      }
-      ```
+     isEmpty() {
+       return !this.queue.length;
+     }
+   }
+   ```
 
+3. 后进先出 —— LIFO
 
+   ```js
+   // 模拟栈
+   class Stack {
+     constructor() {
+       this.stack = [];
+     }
+
+     push(value) {
+       return this.stack.push(value);
+     }
+
+     pop() {
+       return this.stack.pop();
+     }
+
+     size() {
+       return this.stack.length;
+     }
+
+     isEmpty() {
+       return !this.stack.length;
+     }
+   }
+   ```
 
 ## 3. 二分查找
 
@@ -173,13 +167,13 @@
        return mid;
      }
    }
-   
+
    function main(arr, key) {
-     return BinarySearch(arr, 0, arr.length - 1, key)
-   };
-   
+     return BinarySearch(arr, 0, arr.length - 1, key);
+   }
+
    const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
-   
+
    const res = main(arr, 48);
    console.log(res);
    ```
@@ -190,7 +184,7 @@
    function BinarySearch(arr, key) {
      let left = 0;
      let right = arr.length - 1;
-     while(left <= right) {
+     while (left <= right) {
        const mid = left + ((right - left) >> 1);
        const now = arr[mid];
        if (now > key) {
@@ -203,18 +197,16 @@
      }
      return -1;
    }
-   
+
    function main(arr, key) {
-     return BinarySearch(arr, key)
-   };
-   
+     return BinarySearch(arr, key);
+   }
+
    const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
-   
+
    const res = main(arr, 48);
    console.log(res);
    ```
-
-
 
 ## 3. 链表
 
@@ -249,10 +241,10 @@
    let first = new Node('1');
    const second = new Node('2');
    const third = new Node('3');
-   
+
    first.next = second;
    second.next = third;
-   
+
    console.log(JSON.stringify(first, null, 2));
    // {
    //   "value": "1",
@@ -273,11 +265,11 @@
      node.next = link;
      return node;
    }
-   
+
    const insert = new Node('0', first);
    first = insertNodeAtHead(first, insert);
    console.log(JSON.stringify(first, null, 2));
-   
+
    // {
    //   "value": "0",
    //   "next": {
@@ -300,10 +292,10 @@
      link.value = null;
      return link.next;
    }
-   
+
    first = deleteNodeAtHead(first);
    console.log(JSON.stringify(first, null, 2));
-   
+
    // {
    //   "value": "2",
    //   "next": {
@@ -318,16 +310,16 @@
    ```js
    function insertNodeInTail(link, node) {
      let p = link;
-     while(p.next !== null) {
+     while (p.next !== null) {
        p = p.next;
      }
      p.next = node;
    }
-   
+
    const insert = new Node('4');
    insertNodeInTail(first, insert);
    console.log(JSON.stringify(first, null, 2));
-   
+
    // {
    //   "value": "1",
    //   "next": {
@@ -351,12 +343,12 @@
        this.link = null;
        this._size = 0;
      }
-   
+
      push(value) {
        this._size += 1;
        this.link = new Node(value, this.link);
      }
-   
+
      pop() {
        if (this._size !== 0) {
          this._size -= 1;
@@ -366,11 +358,11 @@
        }
        return null;
      }
-   
+
      size() {
        return this._size;
      }
-   
+
      isEmpty() {
        return !this._size;
      }
@@ -386,8 +378,9 @@
        this.last = null;
        this._size = 0;
      }
-   
-     enqueuq(value) {  // 链尾添加
+
+     enqueuq(value) {
+       // 链尾添加
        if (this._size === 0) {
          this.last = new Node(value, null);
          this.link = this.last;
@@ -398,8 +391,9 @@
        }
        this._size += 1;
      }
-   
-     dequeuq() { // 链头删除
+
+     dequeuq() {
+       // 链头删除
        if (this._size !== 0) {
          this._size -= 1;
          const value = this.link.value;
@@ -408,11 +402,11 @@
        }
        return null;
      }
-   
+
      size() {
        return this._size;
      }
-   
+
      isEmpty() {
        return !this._size;
      }
@@ -422,8 +416,6 @@
 数组：顺序存储，数组中是元素
 
 链表：链式存储，链表中是节点
-
-
 
 ### 3.2 课后习题
 
@@ -438,15 +430,15 @@
 3. 假设 x 是一条链表中的某个结点，下面这段代码做了什么？
 
    ```js
-   t.next = x.next
-   x.next = t
+   t.next = x.next;
+   x.next = t;
    ```
 
 4. 为什么下面这段代码和上一道题中的代码效果不同
 
    ```js
-   x.next = t
-   t.next = x.next
+   x.next = t;
+   t.next = x.next;
    ```
 
 5. 编写一个函数，接受一条链表的首结点作为参数，（破坏性地）将链表反转并返回结果链表的首结点
@@ -455,23 +447,23 @@
    function reverse_v2(link) {
      let p = link;
      let reverse = null;
-   
-     while(p !== null) {
+
+     while (p !== null) {
        const node = p;
-       p = p.next; 
+       p = p.next;
        node.next = reverse;
        reverse = node;
      }
-   
+
      return reverse;
-   };
+   }
    ```
 
 ### 3.3 LeetCode 题目
 
 1. 给你单链表的头指针 head 和两个整数 left 和 right，其中 left <= right 。请你反转从位置 left 到位置 right 的链表节点，返回反转后的链表。
 
-   - 解法1
+   - 解法 1
 
      ```js
      class Node {
@@ -480,7 +472,7 @@
          this.next = next;
        }
      }
-     
+
      const reverseLink = function (head) {
        let curr = null;
        let prev = head;
@@ -489,23 +481,23 @@
          prev.next = curr;
          curr = prev;
          prev = next;
-       };
+       }
        return curr;
-     }
-     
+     };
+
      function reverseBetweenNM(head, left, right) {
-       const dummyNode = new Node(-1, head);  // 虚拟头结点
-       let preLeft = dummyNode;  // 左截断结点前一个结点
-       let leftNode = null;  // 左截断结点
+       const dummyNode = new Node(-1, head); // 虚拟头结点
+       let preLeft = dummyNode; // 左截断结点前一个结点
+       let leftNode = null; // 左截断结点
        let rightNode = null; // 右截断结点
-       let afterRight = null;  // 右截断结点后一个结点
+       let afterRight = null; // 右截断结点后一个结点
        // 1. 获取左截断结点前一个结点
        for (let i = 0; i < left - 1; i++) {
          preLeft = preLeft.next;
        }
        // 2. 获取左截断结点
        leftNode = preLeft.next;
-     
+
        rightNode = preLeft;
        // 3. 获取右截断结点
        for (let i = 0; i < right - left + 1; i++) {
@@ -525,19 +517,17 @@
      }
      ```
 
-     
-
-   - 解法2
+   - 解法 2
 
      ```js
      function reverseBetweenNMBetter(head, left, right) {
-       const dummyNode = new Node(-1, head);  // 虚拟头结点
-       let preLeft = dummyNode;  // 左截断结点前一个结点
-     
+       const dummyNode = new Node(-1, head); // 虚拟头结点
+       let preLeft = dummyNode; // 左截断结点前一个结点
+
        for (let i = 0; i < left - 1; i++) {
          preLeft = preLeft.next;
        }
-     
+
        let leftNode = preLeft.next;
        let rightNode = leftNode;
        let curr = null;
@@ -547,10 +537,10 @@
          node.next = curr;
          curr = node;
        }
-     
+
        preLeft.next = curr;
        leftNode.next = rightNode;
-     
+
        return dummyNode.next;
      }
      ```
@@ -559,13 +549,13 @@
 
      ```js
      function reverseBetweenNMPerfect(head, left, right) {
-       const dummyNode = new Node(-1, head);  // 虚拟头结点
-       let preLeft = dummyNode;  // 左截断结点前一个结点
-     
+       const dummyNode = new Node(-1, head); // 虚拟头结点
+       let preLeft = dummyNode; // 左截断结点前一个结点
+
        for (let i = 0; i < left - 1; i++) {
          preLeft = preLeft.next;
        }
-     
+
        let curr = preLeft.next;
        let leftNode = curr;
        for (let i = 0; i < right - left; i++) {
@@ -574,31 +564,29 @@
          next.next = leftNode;
          leftNode = next;
        }
-     
-       preLeft.next = leftNode
-     
+
+       preLeft.next = leftNode;
+
        return dummyNode.next;
      }
      ```
-
-     
 
 2. 给你两个单链表的头节点 headA 和 headB ，两条链表可能相交也可能不相交，如果相交请你找出并返回两个单链表相交的起始节点，如果不存在相交节点，返回 null。
 
    - 解法 1
 
      ```js
-     const getIntersectionNode_v1 = function(headA, headB) {
+     const getIntersectionNode_v1 = function (headA, headB) {
        let temp = headA;
        const visited = new Set();
-       while(temp !== null) {
+       while (temp !== null) {
          visited.add(temp);
          temp = temp.next;
        }
-     
+
        temp = headB;
-       while(temp !== null) {
-         if(visited.has(temp)) {
+       while (temp !== null) {
+         if (visited.has(temp)) {
            return temp;
          }
          temp = temp.next;
@@ -610,32 +598,14 @@
    - 解法 2
 
      ```js
-     const getIntersectionNode_v2 = function(headA, headB) {
+     const getIntersectionNode_v2 = function (headA, headB) {
        if (headA === null || headB === null) return null;
-       let pA = headA, pB = headB;
-       while(pA !== pB) {
+       let pA = headA,
+         pB = headB;
+       while (pA !== pB) {
          pA = pA === null ? headB : pA.next;
          pB = pB === null ? headA : pB.next;
        }
        return pA;
      };
      ```
-
-     
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

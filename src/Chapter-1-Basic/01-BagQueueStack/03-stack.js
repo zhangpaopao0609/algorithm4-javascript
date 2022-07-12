@@ -1,10 +1,10 @@
 // 栈 LIFO 后进先出
 const arr = [0, 1];
 
-arr.push(2) // 进到队尾
+arr.push(2); // 进到队尾
 console.log(arr);
 
-const b = arr.pop() // 在队尾弹出
+const b = arr.pop(); // 在队尾弹出
 console.log(b);
 
 // 模拟栈
@@ -20,7 +20,7 @@ class Stack {
   pop() {
     return this.stack.pop();
   }
-  
+
   size() {
     return this.stack.length;
   }
@@ -31,7 +31,7 @@ class Stack {
 }
 
 const s = new Stack();
-s.push(1)
-s.push(2)
+s.push(1);
+s.push(2);
 
 console.log(s.pop());
