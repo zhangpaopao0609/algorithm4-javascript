@@ -34,11 +34,11 @@ export default defineConfig({
       copyright: 'Copyright © 2022-present Ardor Zhang',
     },
 
-    // algolia: {
-    //   appId: "8J64VVRP8K",
-    //   apiKey: "a18e2f4cc5665f6602c5631fd868adfd",
-    //   indexName: "vitepress",
-    // },
+    algolia: {
+      appId: '0RZZKNW6D6',
+      apiKey: 'aada13abf56c713fc794469fbf1f3264',
+      indexName: 'alg',
+    },
   },
 });
 
@@ -58,7 +58,7 @@ function sidebar() {
       text: '介绍',
       collapsible: true,
       items: [
-        { text: '算法的重要性', link: '/guide/' },
+        { text: '算法', link: '/guide/getting-started' },
         { text: '目录', link: '/guide/one' },
       ],
     },
