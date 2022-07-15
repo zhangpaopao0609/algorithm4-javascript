@@ -73,7 +73,7 @@ function sidebar() {
         { text: '介绍', link: '/chapter-01/' },
         { text: '基础', link: '/chapter-01/basic' },
         { text: '链表', link: '/chapter-01/link' },
-        { text: '二分', link: '/chapter-01/one' },
+        { text: '练习', link: '/chapter-01/practice' },
       ],
     },
   ];
