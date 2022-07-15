@@ -2,7 +2,7 @@
 
 ## 1. 链表基础
 
-定义：链表是一种递归的数据结构，它或者为空（null），或者指向一个节点（node）的引用，**该节点含有一个泛型的<font color=red>元素</font>和一个<font color=red>指向另一条链表的引用</font>**。
+定义：链表是一种递归的数据结构，它或者为空（null），或者指向一个节点（node）的引用，**该节点含有一个泛型的<span style="color:red">元素</span>和一个<span style="color:red">指向另一条链表的引用</span>**。
 
 > 泛型：任意类型数据
 
