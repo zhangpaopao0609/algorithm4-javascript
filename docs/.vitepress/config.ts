@@ -13,6 +13,8 @@ export default defineConfig({
     siteTitle: 'Algorithm 4',
     // logo: "/assets/logo/logo.png",
 
+    outlineTitle: '页面梗要',
+
     nav: nav(),
 
     sidebar: sidebar(),
@@ -68,7 +70,9 @@ function sidebar() {
       text: '第一章',
       collapsible: true,
       items: [
-        { text: '基础', link: '/chapter-01/' },
+        { text: '介绍', link: '/chapter-01/' },
+        { text: '基础', link: '/chapter-01/basic' },
+        { text: '链表', link: '/chapter-01/link' },
         { text: '二分', link: '/chapter-01/one' },
       ],
     },
