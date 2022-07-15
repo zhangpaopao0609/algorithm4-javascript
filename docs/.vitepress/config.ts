@@ -59,7 +59,9 @@ function sidebar() {
       collapsible: true,
       items: [
         { text: '算法', link: '/guide/getting-started' },
-        { text: '目录', link: '/guide/one' },
+        { text: '怎么学', link: '/guide/how-to-learn' },
+        { text: '一起学', link: '/guide/come-together' },
+        { text: 'FAQ', link: '/guide/f-a-q' },
       ],
     },
     {
