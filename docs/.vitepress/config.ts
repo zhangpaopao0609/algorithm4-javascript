@@ -82,7 +82,8 @@ function sidebar() {
       items: [
         { text: '介绍', link: '/chapter-01/' },
         { text: '基础', link: '/chapter-01/basic' },
-        { text: '初体验 — 二分查找', link: '/chapter-01/first-experience' },
+        { text: '初体验——二分查找', link: '/chapter-01/first-experience' },
+        { text: '时间和空间复杂度', link: '/chapter-01/complexity' },
         { text: '链表', link: '/chapter-01/link' },
         { text: '练习', link: '/chapter-01/practice' },
       ],
