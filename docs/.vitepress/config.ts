@@ -4,6 +4,17 @@ export default defineConfig({
   lang: 'zh-ch',
   title: 'Algorithm 4',
   description: 'Algorithm 4 by JavaScript.',
+  head: [
+    [
+      'link',
+      {
+        rel: 'alternate icon',
+        href: '/assets/logo/favicon.ico',
+        type: 'image/png',
+        sizes: '16x16',
+      },
+    ],
+  ],
 
   lastUpdated: true,
 
@@ -18,8 +29,9 @@ export default defineConfig({
     sidebar: sidebar(),
 
     editLink: {
-      pattern: 'xxx/:path',
-      text: 'Edit this page on GitHub',
+      pattern:
+        'https://github.com/ardor-zhang/Algorithm4-Javascript/tree/main/docs/:path',
+      text: '在 GitHub 上编辑此页',
     },
 
     socialLinks: [
