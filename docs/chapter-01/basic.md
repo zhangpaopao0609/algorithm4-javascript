@@ -186,7 +186,7 @@ outline: deep
 
 2. 栈的 API
 <div align='center'>
-  <img src="/chapter-01/basic/stack.png" style="zoom:80%;" />
+  <img src="/assets/chapter-01/basic/stack.png" style="zoom:80%;" />
 </div>
 
 3. 使用数组模拟标准栈
