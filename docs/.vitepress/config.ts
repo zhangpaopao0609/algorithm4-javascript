@@ -1,7 +1,5 @@
 import { defineConfig } from 'vitepress';
 
-import { version } from '../../package.json';
-
 export default defineConfig({
   lang: 'zh-ch',
   title: 'Algorithm 4',
@@ -13,7 +11,7 @@ export default defineConfig({
     siteTitle: 'Algorithm 4',
     // logo: "/assets/logo/logo.png",
 
-    outlineTitle: '页面梗要',
+    outlineTitle: '页面概要',
 
     nav: nav(),
 
@@ -72,6 +70,7 @@ function sidebar() {
       items: [
         { text: '介绍', link: '/chapter-01/' },
         { text: '基础', link: '/chapter-01/basic' },
+        { text: '初体验 — 二分查找', link: '/chapter-01/first-experience' },
         { text: '链表', link: '/chapter-01/link' },
         { text: '练习', link: '/chapter-01/practice' },
       ],
