@@ -64,7 +64,7 @@ returnToTop: true
 
    ```js
    function BinarySearch(arr, left, right, key) {
-     if (left < right) return -1;
+     if (left > right) return -1;
      const mid = left + ((right - left) >> 1);
      const now = arr[mid];
      if (now > key) {

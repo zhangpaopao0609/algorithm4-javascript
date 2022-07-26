@@ -1,5 +1,6 @@
 function BinarySearch(arr, left, right, key) {
-  if (left < right) return -1;
+  console.log(left, right);
+  if (left > right) return -1;
   const mid = left + ((right - left) >> 1);
   const now = arr[mid];
   if (now > key) {
@@ -17,5 +18,5 @@ function main(arr, key) {
 
 const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
 
-const res = main(arr, 48);
+const res = main(arr, 77);
 console.log(res);
