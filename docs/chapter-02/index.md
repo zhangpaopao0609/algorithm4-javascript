@@ -11,6 +11,7 @@ returnToTop: true
 
 <div align='center'>
   <img src="/assets/chapter-01/index/catalog.png" style="zoom:80%;" />
+  <span style="font-size:12px; float:right">参见《算法 4》P目录</span>
 </div>
 
 第一章主要介绍一些基础的知识，为后续的章节做铺垫。

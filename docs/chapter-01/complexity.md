@@ -153,12 +153,13 @@ console.log(arr);
 
 ### 2.4. O(lgN) {#o-lg-n}
 
-典型的时间复杂度为 O(lgn) 的算法就是二分法。
+典型的时间复杂度为 O(lgN) 的算法就是二分法。
 
 我们来细细的看：
 
 <div align='center'>
   <img src="/assets/chapter-01/binary-search/01.png" alt="image-20220329080948444" style="zoom:70%;" />
+  <span style="font-size:12px; float:right">参见《算法 4》P29</span>
 </div>
 
 1. `BinarySearch` 开始第 1 次执行，此时，`left` 到 `right` 的距离为数组的长度 n，然后再次执行到 `BinarySearch`
@@ -211,5 +212,20 @@ const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
 
 const res = main(arr, 77);
 ```
+
+### 2.5. O(NlgN) {#o-n-lg-n}
+
+典型的时间复杂度为 O(NlgN) 的算法就是归并排序。
+
+后续的章节中会有详细的讲解，这里就不详细的讲述了。
+
+可以简单的先有个认知，什么样的算法时间复杂度会为 O(NlgN) 呢？可以认为外层循环会执行 N 次，每次外层循环执行，内层循环都会执行 lgN 次，这样内层循环总共就会执行 NlgN 次，这样的算法的时间复杂度就会为 O(NlgN)。
+
+### 2.6 小结 {#time-complexity-summary}
+
+<div align='center'>
+  <img src="/assets/chapter-01/complexity/time-summary.png" style="zoom:80%;" />
+  <span style="font-size:12px; float:right">参见《算法 4》P117</span>
+</div>
 
 ## 3. 空间复杂度 {#space}

@@ -52,6 +52,7 @@ returnToTop: true
 
 <div align='center'>
   <img src="/assets/chapter-01/binary-search/01.png" alt="image-20220329080948444" style="zoom:70%;" />
+  <span style="font-size:12px; float:right">参见《算法 4》P29</span>
 </div>
 
 在升序数组中，每次去查找中间的元素，这样算法的每次循环都会将查找的范围缩小一半。

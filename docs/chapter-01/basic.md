@@ -64,6 +64,7 @@ outline: deep
    书中给出了背包的 API
    <div align='center'>
      <img src="/assets/chapter-01/basic/bag.png" style="zoom:80%;" />
+     <span style="font-size:12px; float:right">参见《算法 4》P74</span>
    </div>
 
 3. 使用 `Set` 模拟标准的背包
@@ -128,6 +129,7 @@ outline: deep
 2. 队列的 API
 <div align='center'>
   <img src="/assets/chapter-01/basic/queue.png" style="zoom:80%;" />
+  <span style="font-size:12px; float:right">参见《算法 4》P74</span>
 </div>
 
 3. 使用数组模拟标准队列
@@ -187,6 +189,7 @@ outline: deep
 2. 栈的 API
 <div align='center'>
   <img src="/assets/chapter-01/basic/stack.png" style="zoom:80%;" />
+  <span style="font-size:12px; float:right">参见《算法 4》P74</span>
 </div>
 
 3. 使用数组模拟标准栈
