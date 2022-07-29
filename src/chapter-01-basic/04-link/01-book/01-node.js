@@ -1,7 +1,7 @@
 class Node {
   constructor(value = null, next = null) {
-    this.value = value;
-    this.next = next;
+    this.value = value; // 元素
+    this.next = next; // 指向另一条链表，另一个结点的值
   }
 }
 
