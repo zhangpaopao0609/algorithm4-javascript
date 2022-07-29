@@ -6,7 +6,7 @@ function insertNodeAtHead(link, node) {
   return node;
 }
 
-const insert = new Node('0', first);
+const insert = new Node('0', null);
 first = insertNodeAtHead(first, insert);
 console.log(JSON.stringify(first, null, 2));
 

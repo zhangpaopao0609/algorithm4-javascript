@@ -72,12 +72,12 @@ n 个结点（a<sub>i</sub>（1≤i≤n）的存储映像）链结成一个链�
 > 泛型：任意类型数据
 
 <div align='center'>
-  <img src="/assets/chapter-01/Link/node.png" alt="image-20220329080948444" style="zoom:26%;" />
+  <img src="/assets/chapter-01/link/node.png" alt="image-20220329080948444" style="zoom:26%;" />
   <p style="font-size: 12px; font-weight: bold">图1：链表结点</p>
 </div>
 
 <div align='center'>
-  <img src="/assets/chapter-01/Link/link.png" alt="image-20220329080948444" style="zoom:30%;" />
+  <img src="/assets/chapter-01/link/link.png" alt="image-20220329080948444" style="zoom:30%;" />
   <p style="font-size: 12px; font-weight: bold">图2：链表</p>
 </div>
 
@@ -125,60 +125,83 @@ n 个结点（a<sub>i</sub>（1≤i≤n）的存储映像）链结成一个链�
    :::
 
 2. 创建一条链表
+
    创建一条链表非常的简单，只需要将所有的结点连接起来，就形成了一条链表
 
-- 用定义好的 Node 类创建结点
-- 将结点按照期望的顺序连接起来（怎么连接？前一个结点的 next 指向后一个结点即可）
+   - 用定义好的 Node 类创建结点
+   - 将结点按照期望的顺序连接起来（怎么连接？前一个结点的 next 指向后一个结点即可）
 
-```js
-let first = new Node('1');
-const second = new Node('2');
-const third = new Node('3');
+   此时：
 
-first.next = second;
-second.next = third;
-
-console.log(JSON.stringify(first, null, 2));
-// {
-//   "value": "1",
-//   "next": {
-//     "value": "2",
-//     "next": {
-//       "value": "3",
-//       "next": null
-//     }
-//   }
-// }
-```
-
-3. 在表头插入结点
+   - first 就是一条拥有三个结点的链表，first 是一个结点的引用，该结点含有一个指向 second 的引用
+   - second 同样是一个拥有两个结点的链表，second 同样是一个结点的引用，该结点含有一个指向 first 的引用
+   - third 同样是一个拥有一个结点的链表，third 也是一个结点的引用，该节点指向 null，即空链表
 
    ```js
-   function insertNodeAtHead(link, node) {
-     node.next = link;
-     return node;
-   }
+   let first = new Node('1');
+   const second = new Node('2');
+   const third = new Node('3');
 
-   const insert = new Node('0', first);
-   first = insertNodeAtHead(first, insert);
+   first.next = second;
+   second.next = third;
+
    console.log(JSON.stringify(first, null, 2));
-
    // {
-   //   "value": "0",
+   //   "value": "1",
    //   "next": {
-   //     "value": "1",
+   //     "value": "2",
    //     "next": {
-   //       "value": "2",
-   //       "next": {
-   //         "value": "3",
-   //         "next": null
-   //       }
+   //       "value": "3",
+   //       "next": null
    //     }
    //   }
    // }
    ```
 
+3. 在表头插入结点
+
+   非常的简单，总结一句话：**新结点的指针指向链表表头即完成在表头插入结点**
+
+  <div align='center'>
+    <img src="/assets/chapter-01/link/insert-head.png" alt="image-20220329080948444" style="zoom:60%;" />
+    <p style="font-size: 12px; font-weight: bold">图1：在链表头部插入结点</p>
+  </div>
+
+```js
+function insertNodeAtHead(link, node) {
+  node.next = link;
+  return node;
+}
+
+const insert = new Node('0', null);
+first = insertNodeAtHead(first, insert);
+console.log(JSON.stringify(first, null, 2));
+
+// {
+//   "value": "0",
+//   "next": {
+//     "value": "1",
+//     "next": {
+//       "value": "2",
+//       "next": {
+//         "value": "3",
+//         "next": null
+//       }
+//     }
+//   }
+// }
+```
+
 4. 删除表头结点
+
+   非常的简单，同样总结一句话：**表头结点修改为表头的下一个结点即完成表头结点的删除**
+   :::tip
+   删除后，旧的头结点其实并没有直接删除，而是等到内存回收机制来对它进行处理，如果这个结点没有任何地方引用，那么就会清除掉，否者仍然保留
+   :::
+    <div align='center'>
+      <img src="/assets/chapter-01/link/delete-head.png" alt="image-20220329080948444" style="zoom:60%;" />
+      <p style="font-size: 12px; font-weight: bold">图2：删除链表首结点</p>
+    </div>
 
    ```js
    function deleteNodeAtHead(link) {
@@ -199,6 +222,15 @@ console.log(JSON.stringify(first, null, 2));
    ```
 
 5. 在表尾插入结点
+
+   非常的简单，同样总结一句话：**从表头开始，循环找到尾结点，尾结点的指针指向新结点即完成表尾插入新结点**。
+
+    <div align='center'>
+      <img src="/assets/chapter-01/link/insert-tail.png" alt="image-20220329080948444" style="zoom:60%;" />
+      <p style="font-size: 12px; font-weight: bold">图3：链表结尾插入新结点</p>
+    </div>
+
+   关键点就在于：**如何找到尾结点**。其实非常的简单，一个链表中什么样的结点是尾结点呢？有什么样的特征呢？那就是<span style="color: red">**链表结点的指针域指向 null 的结点便是尾结点**</span>。所以，只需要从表头开始，一步一步地往下循环查找，一直查找到某个结点的指针指向 null 停止。
 
    ```js
    function insertNodeInTail(link, node) {
@@ -228,7 +260,21 @@ console.log(JSON.stringify(first, null, 2));
    // }
    ```
 
-6. 用链表实现栈
+6. 删除指定结点
+
+   **参照前面的链表基础操作，作为思考题。**
+
+   具体的讲解放在了第 3 小节课后习题中。
+
+7. 在指定结点前插入新结点
+
+   **参照前面的链表基础操作，作为思考题。**
+
+   具体的讲解放在了第 3 小节课后习题中。
+
+### 2.4 用链表实现栈和队列
+
+1. 用链表实现栈
 
    ```js
    class StackByLink {
@@ -262,7 +308,7 @@ console.log(JSON.stringify(first, null, 2));
    }
    ```
 
-7. 用链表实现队列
+2. 用链表实现队列
 
    ```js
    class QueueByLink {
@@ -306,8 +352,12 @@ console.log(JSON.stringify(first, null, 2));
    }
    ```
 
-### 2.4. 小结
+### 2.5. 小结
 
 数组：顺序存储，数组中是元素
 
 链表：链式存储，链表中是结点
+
+## 3. 课后习题
+
+## 4. leetcode 题目
