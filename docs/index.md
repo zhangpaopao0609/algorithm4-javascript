@@ -14,22 +14,22 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/getting-started
+      link: /guide/intro/getting-started
     - theme: alt
       text: View on GitHub
       link: https://github.com/ardor-zhang/Algorithm4-Javascript
 
 features:
-  - icon: ⚡️
+  - icon: 🏋️
     title: 从头到尾学习一遍《算法4》
     details: 《算法 4》的所有知识点的梳理和学习
-  - icon: 🖖
+  - icon: ✍️
     title: 用 JavaScript 来写算法
     details: 用 JS 来实现所有的算法、课后习题以及 LeetCode 题目
-  - icon: 🛠️
+  - icon: 🐝
     title: 题目练习和讲解
     details: 每一种算法将挑选课后习题和经典的 LeetCode 题目进行练习和讲解
   - icon: 🎬
-    title: 444
-    details: 444.
+    title: 视频讲解
+    details: 倾力打造 "用 JavaScript 来学 《算法 4》 系列教程"
 ---
