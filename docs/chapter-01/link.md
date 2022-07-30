@@ -274,23 +274,27 @@ console.log(JSON.stringify(first, null, 2));
 
 ### 2.4 用链表实现栈和队列
 
+前面我们用数组（顺序表）实现了栈和队列，这里我们用链表同样可以实现。
+
+> 用链表实现栈相比较队列要简单一些，因此先实现栈
+
 1. 用链表实现栈
+
+   实现 LIFO 的 API。
 
    ```js
    class StackByLink {
-     constructor() {
-       this.link = null;
-       this._size = 0;
-     }
+     link = null; // 其实这里也同样应该设置为私有属性的，但为了展示，这里就仍然使用普通属性
+     #size = 0; // ES2022 正式为 class 添加了私有属性，方法是在属性名之前使用 # 表示。
 
      push(value) {
-       this._size += 1;
+       this.#size += 1;
        this.link = new Node(value, this.link);
      }
 
      pop() {
-       if (this._size !== 0) {
-         this._size -= 1;
+       if (this.#size !== 0) {
+         this.#size -= 1;
          const value = this.link.value;
          this.link = this.link.next;
          return value;
@@ -299,42 +303,47 @@ console.log(JSON.stringify(first, null, 2));
      }
 
      size() {
-       return this._size;
+       return this.#size;
      }
 
      isEmpty() {
-       return !this._size;
+       return !this.#size;
      }
    }
    ```
 
+   :::tip
+   ES2022 正式为 class 添加了私有属性，方法是在属性名之前使用 # 表示。点击查看详情：
+   [提案](https://github.com/tc39/proposal-class-fields), [ES6](https://es6.ruanyifeng.com/#docs/class#%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E7%A7%81%E6%9C%89%E5%B1%9E%E6%80%A7)
+   :::
+
 2. 用链表实现队列
+
+   同样实现 FIFO 的 API。
 
    ```js
    class QueueByLink {
-     constructor() {
-       this.link = null;
-       this.last = null;
-       this._size = 0;
-     }
+     link = null;
+     #last = null;
+     #size = 0;
 
      enqueuq(value) {
        // 链尾添加
-       if (this._size === 0) {
-         this.last = new Node(value, null);
-         this.link = this.last;
+       if (this.#size === 0) {
+         this.#last = new Node(value, null);
+         this.link = this.#last;
        } else {
-         const oldLast = this.last;
-         this.last = new Node(value, null);
-         oldLast.next = this.last;
+         const oldLast = this.#last;
+         this.#last = new Node(value, null);
+         oldLast.next = this.#last;
        }
-       this._size += 1;
+       this.#size += 1;
      }
 
      dequeuq() {
        // 链头删除
-       if (this._size !== 0) {
-         this._size -= 1;
+       if (this.#size !== 0) {
+         this.#size -= 1;
          const value = this.link.value;
          this.link = this.link.next;
          return value;
@@ -343,11 +352,11 @@ console.log(JSON.stringify(first, null, 2));
      }
 
      size() {
-       return this._size;
+       return this.#size;
      }
 
      isEmpty() {
-       return !this._size;
+       return !this.#size;
      }
    }
    ```

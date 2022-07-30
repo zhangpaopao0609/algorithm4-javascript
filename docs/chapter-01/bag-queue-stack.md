@@ -122,11 +122,6 @@ outline: deep
   console.log(b, b.size(), b.isEmpty());
   ```
 
-  <!-- :::tip
-  ES2022 正式为 class 添加了私有属性，方法是在属性名之前使用 # 表示。点击查看详情：
-  [提案](https://github.com/tc39/proposal-class-fields), [ES6](https://es6.ruanyifeng.com/#docs/class#%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E7%A7%81%E6%9C%89%E5%B1%9E%E6%80%A7)
-  ::: -->
-
 ### 2.2. 队列 —— FIFO {#fifo}
 
 1. 概念

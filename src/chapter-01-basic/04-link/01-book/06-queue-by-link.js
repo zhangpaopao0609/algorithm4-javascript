@@ -5,31 +5,29 @@ class Node {
   }
 }
 
-// LIFO
+// FIFO
 class QueueByLink {
-  constructor() {
-    this.link = null;
-    this.last = null;
-    this._size = 0;
-  }
+  link = null;
+  #last = null;
+  #size = 0;
 
   enqueuq(value) {
     // 链尾添加
-    if (this._size === 0) {
-      this.last = new Node(value, null);
-      this.link = this.last;
+    if (this.#size === 0) {
+      this.#last = new Node(value, null);
+      this.link = this.#last;
     } else {
-      const oldLast = this.last;
-      this.last = new Node(value, null);
-      oldLast.next = this.last;
+      const oldLast = this.#last;
+      this.#last = new Node(value, null);
+      oldLast.next = this.#last;
     }
-    this._size += 1;
+    this.#size += 1;
   }
 
   dequeuq() {
     // 链头删除
-    if (this._size !== 0) {
-      this._size -= 1;
+    if (this.#size !== 0) {
+      this.#size -= 1;
       const value = this.link.value;
       this.link = this.link.next;
       return value;
@@ -38,11 +36,11 @@ class QueueByLink {
   }
 
   size() {
-    return this._size;
+    return this.#size;
   }
 
   isEmpty() {
-    return !this._size;
+    return !this.#size;
   }
 }
 

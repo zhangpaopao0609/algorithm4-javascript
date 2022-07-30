@@ -5,20 +5,19 @@ class Node {
   }
 }
 
+// LIFO
 class StackByLink {
-  constructor() {
-    this.link = null;
-    this._size = 0;
-  }
+  link = null; // 其实这里也同样应该设置为私有属性的，但为了展示，这里就仍然使用普通属性
+  #size = 0; // ES2022 正式为 class 添加了私有属性，方法是在属性名之前使用 # 表示。
 
   push(value) {
-    this._size += 1;
+    this.#size += 1;
     this.link = new Node(value, this.link);
   }
 
   pop() {
-    if (this._size !== 0) {
-      this._size -= 1;
+    if (this.#size !== 0) {
+      this.#size -= 1;
       const value = this.link.value;
       this.link = this.link.next;
       return value;
@@ -27,11 +26,11 @@ class StackByLink {
   }
 
   size() {
-    return this._size;
+    return this.#size;
   }
 
   isEmpty() {
-    return !this._size;
+    return !this.#size;
   }
 }
 

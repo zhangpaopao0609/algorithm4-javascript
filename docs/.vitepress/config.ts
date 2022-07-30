@@ -26,7 +26,10 @@ export default defineConfig({
 
     nav: nav(),
 
-    sidebar: sidebar(),
+    sidebar: {
+      '/guide/': guideSidebar(),
+      '/about/': aboutSidebar(),
+    },
 
     editLink: {
       pattern:
@@ -56,15 +59,16 @@ export default defineConfig({
 
 function nav() {
   return [
-    { text: 'Ardor', link: '/ardor' },
+    { text: 'Guide', link: '/guide/getting-started', activeMatch: '/guide/' },
+    { text: 'Ardor', link: '/about/me', activeMatch: '/about/' },
     {
       text: 'github',
-      link: '',
+      link: 'https://github.com/ardor-zhang/Algorithm4-Javascript',
     },
   ];
 }
 
-function sidebar() {
+function guideSidebar() {
   return [
     {
       text: '介绍',
@@ -86,6 +90,19 @@ function sidebar() {
         { text: '时间和空间复杂度', link: '/chapter-01/complexity' },
         { text: '链表', link: '/chapter-01/link' },
         { text: '练习', link: '/chapter-01/practice' },
+      ],
+    },
+  ];
+}
+
+function aboutSidebar() {
+  return [
+    {
+      text: '我',
+      collapsible: true,
+      items: [
+        { text: '张跑跑', link: '/about/me' },
+        { text: '计划', link: '/about/plan' },
       ],
     },
   ];
