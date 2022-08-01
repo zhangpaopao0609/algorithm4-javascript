@@ -8,13 +8,30 @@ const b = arr.pop(); // 在队尾弹出
 console.log(b);
 
 //-- 用数组模拟栈 ------------------------------
-class Stack extends Array {
+// 用数组的 API 实现栈的 push、pop、size、isEmpty 和 forEach
+class Stack {
+  #stack = [];
+
+  push(value) {
+    // 压栈（栈尾）
+    this.#stack.push(value);
+  }
+
+  pop() {
+    // 弹出（栈尾）
+    return this.#stack.pop();
+  }
+
   size() {
-    return this.length;
+    return this.#stack.length;
   }
 
   isEmpty() {
-    return !this.length;
+    return !this.#stack.length;
+  }
+
+  forEach(cb) {
+    typeof cb === 'function' && this.#stack.forEach(cb);
   }
 }
 

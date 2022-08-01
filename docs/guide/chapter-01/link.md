@@ -285,7 +285,7 @@ console.log(JSON.stringify(first, null, 2));
    ```js
    class StackByLink {
      link = null; // 其实这里也同样应该设置为私有属性的，但为了展示，这里就仍然使用普通属性
-     #size = 0; // ES2022 正式为 class 添加了私有属性，方法是在属性名之前使用 # 表示。
+     #size = 0;
 
      push(value) {
        this.#size += 1;
@@ -311,11 +311,6 @@ console.log(JSON.stringify(first, null, 2));
      }
    }
    ```
-
-   :::tip
-   ES2022 正式为 class 添加了私有属性，方法是在属性名之前使用 # 表示。点击查看详情：
-   [提案](https://github.com/tc39/proposal-class-fields), [ES6](https://es6.ruanyifeng.com/#docs/class#%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E7%A7%81%E6%9C%89%E5%B1%9E%E6%80%A7)
-   :::
 
 2. 用链表实现队列
 

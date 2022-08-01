@@ -10,9 +10,9 @@ outline: deep
 
 这三种数据类型都非常的经典，是很多算法的基础。
 
-在其他语言中，比如 java，语言就提供这些基础类型对应的类，可以直接创建，比如 Stack, java 中可直接 `new Stack<T>()` 创建，但是 javascript 中并没有内置这些类，但我们可以用 js 中已用的数据类型来实现。
+在其他语言中，比如 java，语言就提供这些基础类型对应的类，可以直接创建，比如 `Stack`, java 中可直接 `new Stack<T>()` 创建，但是 js 并没有内置这些类，但我们可以用 js 中已用的数据类型来实现。
 
-- 用 `Set` 来实现背包
+- 用 `Map` 来实现背包
 - 用 `Array` 来实现队列和栈
 
 > ES6 引入了 `Map、Set`, 从某种角度上说，它弥补了一些，但并不是真正意义上的 Bag, Queue, Stack，所以还是需要自己来模拟。
@@ -62,7 +62,21 @@ outline: deep
    console.log(arr, cut); // [1, 4, 5] [2, 3]
    ```
 
-### 1.2 `Set` 集合
+### 1.2 `Map` 集合
+
+```js
+//-- 尝试 Map ------------------------------------------------
+const m = new Map();
+
+m.set('key1', 'value1');
+console.log(m);
+
+m.set('key2', 'value2');
+m.forEach((v) => console.log(v));
+
+m.delete('key2');
+console.log(m.size);
+```
 
 ## 2. 背包、队列和栈 {#detail}
 
@@ -80,47 +94,57 @@ outline: deep
      <span style="font-size:12px; float:right">参见《算法 4》P74</span>
    </div>
 
-3. 使用 `Set` 模拟标准的背包
+3. 使用 `Map` 模拟标准的背包
 
-`Set` 本身已经拥有 `add, forEach` 方法，因此，仅需要实现 `size` 和 `isEmpty` 方法即可
+   直接利用 `Map` 的 API 实现背包的 `add、isEmpty、size` 和 `forEach` 方法
 
-- 继承 `Set`
-- 实现 `size` 和 `isEmpty`
-- 拦截 `delete` 方法（因为标准的背包是不能对元素进行删除的，但是 Set 提供了 delete 方法，因此需要拦截一下）
+   ```js
+   //-- 使用 Map 模拟背包 ------------------------------------------
+   // 利用 Map 的 API 实现 add、isEmpty、size 和 forEach 方法
+   class Bag {
+     #bag = new Map(); // ES2022 正式为 class 添加了私有属性，方法是在属性名之前使用 # 表示。
 
-  ```js
-  //-- 尝试 Set ------------------------------------------------
-  const s = new Set();
+     add(item) {
+       // 这里为什么要用 Symbol, 第一点：Map 需要唯一的 key(不唯一就覆盖了)；第二点：背包并不需要 key，所以不能让外部感知到 key
+       const key = Symbol();
+       this.#bag.set(key, item);
+     }
 
-  s.add(1);
-  console.log(s);
-  s.add(2);
-  s.forEach((v) => console.log(v));
-  s.delete(2);
-  console.log(s.size);
+     size() {
+       return this.#bag.size;
+     }
 
-  //-- 使用 Set 模拟背包 -----------------------------------------
-  // Set 本身已经拥有 add, forEach 方法，因此，仅需要实现 size 和 isEmpty 方法即可
-  class Bag extends Set {
-    size() {
-      return this.size;
-    }
+     isEmpty() {
+       return !this.#bag.size;
+     }
 
-    isEmpty() {
-      return !this.size;
-    }
+     forEach(cb) {
+       typeof cb === 'function' && this.#bag.forEach((v) => cb(v)); // 这里为什么我要再写一个箭头函数呢？原因很简单，因为 map 的 forEach 是支持两个参数的(value, key)，但是背包不需要，所以过滤一下
+     }
+   }
 
-    delete() {
-      // 标准的背包是不能对元素进行删除的，但是 Set 提供了 delete 方法，因此需要拦截一下
-      return;
-    }
-  }
+   const b = new Bag();
+   b.add(0);
+   b.add(1);
+   b.forEach((v) => console.log(v));
+   console.log(b.size(), b.isEmpty());
+   ```
 
-  const b = new Bag();
-  b.add('test');
-  b.forEach((v) => console.log(v));
-  console.log(b, b.size(), b.isEmpty());
-  ```
+   :::tip
+   因为 `Map` 在添加元素的时候需要 `key` 和 `value`，而且当 `key` 重复时是进行覆盖（更新）的，而我们的背包的目的就是收集元素，因此这里使用了 `Symbol` 作为 `Map` 的 `key`
+   :::
+
+   :::tip
+   你可能会问，为什么要用 `Map` 来模拟呢？为啥不用 `Set`, `Set` 不需要 `key` 同样也能实现元素收集；还有为啥不用 `Object` 呢？
+
+   - 为什么不用 `Set`：因为 `Set` 会自动去重，这就不满足背包的特性了
+   - 为什么不用 `Object`：其实是可以的，只是使用 `Object` 会相对麻烦一些，比如 `forEach` 的实现
+     :::
+
+   :::tip
+   ES2022 正式为 class 添加了私有属性，方法是在属性名之前使用 # 表示。点击查看详情：
+   [提案](https://github.com/tc39/proposal-class-fields), [ES6](https://es6.ruanyifeng.com/#docs/class#%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95%E5%92%8C%E7%A7%81%E6%9C%89%E5%B1%9E%E6%80%A7)
+   :::
 
 ### 2.2. 队列 —— FIFO {#fifo}
 
@@ -138,48 +162,45 @@ outline: deep
 
 3. 使用数组模拟标准队列
 
-   利用 `Array` 来实现队列
+用数组的 API 实现队列的 `enqueuq、dequeue、size、isEmpty` 和 `forEach`
 
-   - 继承 `Array`
-   - 实现 `enqueue`、`dequeue`、`isEmpty` 和 `size()` 方法
+```js
+//-- 用数组模拟队列 ------------------------------
+// 用数组的 API 实现队列的 enqueuq、dequeue、size、isEmpty 和 forEach
+class Queue {
+  #queue = [];
 
-   ```js
-   //-- 数组元素的队尾添加和队头弹出 -----------------
-   const arr = [0, 1];
+  enqueuq(value) {
+    // 进入队尾
+    this.#queue.push(value);
+  }
 
-   arr.push(2); // 进到队尾
-   console.log(arr);
+  dequeue() {
+    // 离开队头
+    return this.#queue.shift();
+  }
 
-   const b = arr.shift(); // 在队头弹出
-   console.log(b, arr);
+  size() {
+    return this.#queue.length;
+  }
 
-   //-- 用数组模拟队列 ------------------------------
-   class Queue extends Array {
-     enqueuq(value) {
-       this.push(value);
-     }
+  isEmpty() {
+    return !this.#queue.length;
+  }
 
-     dequeue() {
-       return this.shift();
-     }
+  forEach(cb) {
+    typeof cb === 'function' && this.#queue.forEach(cb);
+  }
+}
 
-     size() {
-       return this.length;
-     }
+const q = new Queue();
+q.enqueuq(1);
+q.enqueuq(2);
+q.forEach((a) => console.log(a));
 
-     isEmpty() {
-       return !this.length;
-     }
-   }
-
-   const q = new Queue();
-   q.enqueuq(1);
-   q.enqueuq(2);
-   q.forEach((a) => console.log(a));
-
-   const e = q.dequeue();
-   console.log(q, e);
-   ```
+const e = q.dequeue();
+console.log(q, e);
+```
 
 ### 2.3. 栈 —— LIFO {#lifo}
 
@@ -198,29 +219,34 @@ outline: deep
 
 3. 使用数组模拟标准栈
 
-   利用 `Array` 来实现栈, `Array` 本身已经拥有 `push, pop` 方法，因此，仅需要实现 `isEmpty` 和 `size` 方法即可
-
-   - 继承 `Array`
-   - 实现 `isEmpty` 和 `size()` 方法
+   用数组的 API 实现栈的 push、pop、size、isEmpty 和 forEach
 
    ```js
-   //-- 数组元素的队尾添加和队尾弹出 -----------------
-   const arr = [0, 1];
-
-   arr.push(2); // 进到队尾
-   console.log(arr);
-
-   const b = arr.pop(); // 在队尾弹出
-   console.log(b);
-
    //-- 用数组模拟栈 ------------------------------
-   class Stack extends Array {
+   // 用数组的 API 实现栈的 push、pop、size、isEmpty 和 forEach
+   class Stack {
+     #stack = [];
+
+     push(value) {
+       // 压栈（栈尾）
+       this.#stack.push(value);
+     }
+
+     pop() {
+       // 弹出（栈尾）
+       return this.#stack.pop();
+     }
+
      size() {
-       return this.length;
+       return this.#stack.length;
      }
 
      isEmpty() {
-       return !this.length;
+       return !this.#stack.length;
+     }
+
+     forEach(cb) {
+       typeof cb === 'function' && this.#stack.forEach(cb);
      }
    }
 
@@ -231,3 +257,10 @@ outline: deep
 
    console.log(s.pop());
    ```
+
+## 3. 小结 {#summary}
+
+背包、队列和栈是算法中十分基础的数据类型
+
+1. 学习了背包（收集元素）、队列（实现 FIFO）和栈（实现 LIFO）
+2. 用 js 实现了以上三者
