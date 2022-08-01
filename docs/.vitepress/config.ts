@@ -2,8 +2,8 @@ import { defineConfig } from 'vitepress';
 
 export default defineConfig({
   lang: 'zh-ch',
-  title: 'Algorithm 4',
-  description: 'Algorithm 4 by JavaScript.',
+  title: 'Algorithms 4',
+  description: 'Algorithms 4 by JavaScript.',
   head: [
     [
       'link',
@@ -19,7 +19,7 @@ export default defineConfig({
   lastUpdated: true,
 
   themeConfig: {
-    siteTitle: 'Algorithm 4',
+    siteTitle: 'Algorithms 4',
     // logo: "/assets/logo/logo.png",
 
     outlineTitle: '页面概要',
