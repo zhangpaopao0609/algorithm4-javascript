@@ -1,11 +1,11 @@
 ---
 layout: home
 
-title: Algorithm 4
-titleTemplate: Algorithm 4 with JavaScript
+title: Algorithms 4
+titleTemplate: Algorithms 4 with JavaScript
 
 hero:
-  name: Algorithm 4
+  name: Algorithms 4
   text: 用 JavaScript 来学《算法 4》
   tagline: 从头到尾学习一遍《算法 4》，并将所有算法和习题用 JavaScript 来实现
   # image:
