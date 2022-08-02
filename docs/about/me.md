@@ -21,5 +21,5 @@ returnToTop: true
 这是我的公众号，虽是新手，但我希望自己能持续下去：
 
 <div>
-    <img src="/assets/logo/gzh.jpg" style="zoom:80%;" />
+    <img src="./images/gzh.jpg" style="zoom:80%;" />
 </div>

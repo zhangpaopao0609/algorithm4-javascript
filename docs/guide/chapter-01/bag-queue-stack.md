@@ -90,7 +90,7 @@ console.log(m.size);
 
    书中给出了背包的 API
    <div align='center'>
-     <img src="/assets/chapter-01/basic/bag.png" style="zoom:80%;" />
+     <img src="./images/basic/bag.png" style="zoom:80%;" />
      <span style="font-size:12px; float:right">参见《算法 4》P74</span>
    </div>
 
@@ -154,9 +154,13 @@ console.log(m.size);
 
    > 生活中的排队就是典型的例子。任何服务型策略的基本原则就是公平，在提到公平是大多数人的第一个想法就是应该优先服务等待最久的人，这也正是先进先出策略的准则。
 
+    <div align='center'>
+     <img src="./images/basic/arr-queue.png" style="zoom:80%;" />
+   </div>
+
 2. 队列的 API
 <div align='center'>
-  <img src="/assets/chapter-01/basic/queue.png" style="zoom:80%;" />
+  <img src="./images/basic/queue.png" style="zoom:80%;" />
   <span style="font-size:12px; float:right">参见《算法 4》P74</span>
 </div>
 
@@ -211,9 +215,13 @@ console.log(q, e);
    > 生活中也有非常多的例子：比如新邮件会在最前面出现、叠在一起的重物会先拿最上面的、浏览器访问时页面的回退机制。<br>
    > 这种策略的好处就是我们能够及时的获取到最新的消息，但是坏处就是如果不把栈清空，较早的信息就一直不会获取到。
 
+   <div align='center'>
+     <img src="./images/basic/arr-stack.png" style="zoom:80%;" />
+   </div>
+
 2. 栈的 API
 <div align='center'>
-  <img src="/assets/chapter-01/basic/stack.png" style="zoom:80%;" />
+  <img src="./images/basic/stack.png" style="zoom:80%;" />
   <span style="font-size:12px; float:right">参见《算法 4》P74</span>
 </div>
 

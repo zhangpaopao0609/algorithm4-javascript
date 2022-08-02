@@ -10,7 +10,7 @@ returnToTop: true
 ## 本章内容 {#content}
 
 <div align='center'>
-  <img src="/assets/chapter-01/index/catalog.png" style="zoom:80%;" />
+  <img src="./images/index/catalog.png" style="zoom:80%;" />
   <span style="font-size:12px; float:right">参见《算法 4》目录</span>
 </div>
 

@@ -9,7 +9,7 @@ export default defineConfig({
       'link',
       {
         rel: 'shortcut icon',
-        href: '/assets/logo/favicon.ico',
+        href: '/favicon.ico',
         type: 'image/x-icon',
         sizes: '16x16',
       },

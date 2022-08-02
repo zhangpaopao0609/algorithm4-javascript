@@ -51,7 +51,7 @@ returnToTop: true
 之后我们会详细的讲解二分查找，这里只是简单的让大家初步感受一些算法的魅力。
 
 <div align='center'>
-  <img src="/assets/chapter-01/binary-search/01.png" alt="image-20220329080948444" style="zoom:70%;" />
+  <img src="./images/binary-search/01.png" alt="image-20220329080948444" style="zoom:70%;" />
   <span style="font-size:12px; float:right">参见《算法 4》P29</span>
 </div>
 

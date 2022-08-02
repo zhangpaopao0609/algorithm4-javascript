@@ -158,7 +158,7 @@ console.log(arr);
 我们来细细的看：
 
 <div align='center'>
-  <img src="/assets/chapter-01/binary-search/01.png" alt="image-20220329080948444" style="zoom:70%;" />
+  <img src="./images/binary-search/01.png" alt="image-20220329080948444" style="zoom:70%;" />
   <span style="font-size:12px; float:right">参见《算法 4》P29</span>
 </div>
 
@@ -226,7 +226,7 @@ const res = main(arr, 77);
 下表总结了常见的时间复杂度对应的典型代码（《算法 4》称增长数量级）
 
 <div align='center'>
-  <img src="/assets/chapter-01/complexity/time-summary.png" style="zoom:80%;" />
+  <img src="./images/complexity/time-summary.png" style="zoom:80%;" />
   <span style="font-size:12px; float:right">参见《算法 4》P117</span>
 </div>
 

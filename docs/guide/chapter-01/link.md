@@ -22,7 +22,7 @@ returnToTop: true
 比如有这样一组数组：1，2，3，4，5，将其线性的存储起来，有两种方式：
 
 <div align='center'>
-  <img src="/assets/chapter-01/link/liner-list.jpeg" alt="image-20220329080948444" style="zoom:20%;" />
+  <img src="./images/link/liner-list.jpeg" alt="image-20220329080948444" style="zoom:20%;" />
   <p style="font-size: 12px; font-weight: bold">图1：两种存储线性表的方式</p>
 </div>
 
@@ -72,12 +72,12 @@ n 个结点（a<sub>i</sub>（1≤i≤n）的存储映像）链结成一个链�
 > 泛型：任意类型数据
 
 <div align='center'>
-  <img src="/assets/chapter-01/link/node.png" alt="image-20220329080948444" style="zoom:26%;" />
+  <img src="./images/link/node.png" alt="image-20220329080948444" style="zoom:26%;" />
   <p style="font-size: 12px; font-weight: bold">图1：链表结点</p>
 </div>
 
 <div align='center'>
-  <img src="/assets/chapter-01/link/link.png" alt="image-20220329080948444" style="zoom:30%;" />
+  <img src="./images/link/link.png" alt="image-20220329080948444" style="zoom:30%;" />
   <p style="font-size: 12px; font-weight: bold">图2：链表</p>
 </div>
 
@@ -163,7 +163,7 @@ n 个结点（a<sub>i</sub>（1≤i≤n）的存储映像）链结成一个链�
    非常的简单，总结一句话：**新结点的指针指向链表表头即完成在表头插入结点**
 
   <div align='center'>
-    <img src="/assets/chapter-01/link/insert-head.png" alt="image-20220329080948444" style="zoom:60%;" />
+    <img src="./images/link/insert-head.png" alt="image-20220329080948444" style="zoom:60%;" />
     <p style="font-size: 12px; font-weight: bold">图1：在链表头部插入结点</p>
   </div>
 
@@ -199,7 +199,7 @@ console.log(JSON.stringify(first, null, 2));
    删除后，旧的头结点其实并没有直接删除，而是等到内存回收机制来对它进行处理，如果这个结点没有任何地方引用，那么就会清除掉，否者仍然保留
    :::
     <div align='center'>
-      <img src="/assets/chapter-01/link/delete-head.png" alt="image-20220329080948444" style="zoom:60%;" />
+      <img src="./images/link/delete-head.png" alt="image-20220329080948444" style="zoom:60%;" />
       <p style="font-size: 12px; font-weight: bold">图2：删除链表首结点</p>
     </div>
 
@@ -226,7 +226,7 @@ console.log(JSON.stringify(first, null, 2));
    非常的简单，同样总结一句话：**从表头开始，循环找到尾结点，尾结点的指针指向新结点即完成表尾插入新结点**。
 
     <div align='center'>
-      <img src="/assets/chapter-01/link/insert-tail.png" alt="image-20220329080948444" style="zoom:60%;" />
+      <img src="./images/link/insert-tail.png" alt="image-20220329080948444" style="zoom:60%;" />
       <p style="font-size: 12px; font-weight: bold">图3：链表结尾插入新结点</p>
     </div>
 

@@ -60,7 +60,8 @@ console.log(b.size(), b.isEmpty());
 //   }
 
 //   forEach(cb) {
-//     Object.getOwnPropertySymbols(this.#bag).forEach((item) => cb(this.#bag[item]))
+//     typeof cb === 'function' &&
+//     Object.getOwnPropertySymbols(this.#bag).forEach(item => cb(this.#bag[item]))
 //   }
 // }
 
