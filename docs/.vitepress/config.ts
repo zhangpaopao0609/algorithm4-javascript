@@ -11,7 +11,7 @@ export default defineConfig({
         rel: 'shortcut icon',
         href: '/favicon.ico',
         type: 'image/x-icon',
-        sizes: '16x16',
+        sizes: '32x32',
       },
     ],
   ],
