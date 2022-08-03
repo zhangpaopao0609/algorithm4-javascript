@@ -322,7 +322,7 @@ console.log(JSON.stringify(first, null, 2));
      #last = null;
      #size = 0;
 
-     enqueuq(value) {
+     enqueue(value) {
        // 链尾添加
        if (this.#size === 0) {
          this.#last = new Node(value, null);

@@ -11,7 +11,7 @@ class QueueByLink {
   #last = null;
   #size = 0;
 
-  enqueuq(value) {
+  enqueue(value) {
     // 链尾添加
     if (this.#size === 0) {
       this.#last = new Node(value, null);
@@ -45,9 +45,9 @@ class QueueByLink {
 }
 
 const q = new QueueByLink();
-q.enqueuq(1);
-q.enqueuq(2);
-q.enqueuq(3);
+q.enqueue(1);
+q.enqueue(2);
+q.enqueue(3);
 
 console.log(q);
 

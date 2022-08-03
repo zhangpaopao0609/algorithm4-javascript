@@ -8,11 +8,11 @@ const b = arr.shift(); // 在队头弹出
 console.log(b, arr);
 
 //-- 用数组模拟队列 ------------------------------
-// 用数组的 API 实现队列的 enqueuq、dequeue、size、isEmpty 和 forEach
+// 用数组的 API 实现队列的 enqueue、dequeue、size、isEmpty 和 forEach
 class Queue {
   #queue = [];
 
-  enqueuq(value) {
+  enqueue(value) {
     // 进入队尾
     this.#queue.push(value);
   }
@@ -36,8 +36,8 @@ class Queue {
 }
 
 const q = new Queue();
-q.enqueuq(1);
-q.enqueuq(2);
+q.enqueue(1);
+q.enqueue(2);
 q.forEach((a) => console.log(a));
 
 const e = q.dequeue();
