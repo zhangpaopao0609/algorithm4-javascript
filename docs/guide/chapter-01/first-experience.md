@@ -51,8 +51,13 @@ returnToTop: true
 之后我们会详细的讲解二分查找，这里只是简单的让大家初步感受一些算法的魅力。
 
 <div align='center'>
-  <img src="./images/binary-search/01.png" alt="image-20220329080948444" style="zoom:70%;" />
-  <span style="font-size:12px; float:right">参见《算法 4》P29</span>
+  <img src="./images/binary-search/search-23.png" alt="image-20220329080948444" style="zoom:36%;" />
+  <p class="image-title">图1：二分查找 23，仅需查找 3 次</p>
+</div>
+
+<div align='center'>
+  <img src="./images/binary-search/search-50.png" alt="image-20220329080948444" style="zoom:36%;" />
+  <p class="image-title">图2：二分查找 50， 仅需查找 5 次</p>
 </div>
 
 在升序数组中，每次去查找中间的元素，这样算法的每次循环都会将查找的范围缩小一半。
@@ -61,33 +66,7 @@ returnToTop: true
 - 如果被查找的键大于 `arr[mid]`，那么说明这个键一定在 `arr[mid]` 的右边，这样就将范围缩小一半了
 - 同样，如果被查找的键小于 `arr[mid]`，那么说明这个键一定在 `arr[mid]` 的左边
 
-1. 递归版本
-
-   ```js
-   function BinarySearch(arr, left, right, key) {
-     if (left > right) return -1;
-     const mid = left + ((right - left) >> 1);
-     const now = arr[mid];
-     if (now > key) {
-       return BinarySearch(arr, left, mid - 1, key);
-     } else if (now < key) {
-       return BinarySearch(arr, mid + 1, right, key);
-     } else {
-       return mid;
-     }
-   }
-
-   function main(arr, key) {
-     return BinarySearch(arr, 0, arr.length - 1, key);
-   }
-
-   const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
-
-   const res = main(arr, 48);
-   console.log(res);
-   ```
-
-2. 迭代版本
+1. 迭代版本
 
    ```js
    function BinarySearch(arr, key) {
@@ -109,6 +88,32 @@ returnToTop: true
 
    function main(arr, key) {
      return BinarySearch(arr, key);
+   }
+
+   const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
+
+   const res = main(arr, 48);
+   console.log(res);
+   ```
+
+2. 递归版本
+
+   ```js
+   function BinarySearch(arr, left, right, key) {
+     if (left > right) return -1;
+     const mid = left + ((right - left) >> 1);
+     const now = arr[mid];
+     if (now > key) {
+       return BinarySearch(arr, left, mid - 1, key);
+     } else if (now < key) {
+       return BinarySearch(arr, mid + 1, right, key);
+     } else {
+       return mid;
+     }
+   }
+
+   function main(arr, key) {
+     return BinarySearch(arr, 0, arr.length - 1, key);
    }
 
    const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];

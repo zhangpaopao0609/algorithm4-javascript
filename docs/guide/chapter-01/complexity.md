@@ -159,7 +159,7 @@ console.log(arr);
 
 <div align='center'>
   <img src="./images/binary-search/01.png" alt="image-20220329080948444" style="zoom:70%;" />
-  <span style="font-size:12px; float:right">参见《算法 4》P29</span>
+  <span class="comment-alg4-book">参见《算法 4》P29</span>
 </div>
 
 1. `BinarySearch` 开始第 1 次执行，此时，`left` 到 `right` 的距离为数组的长度 n，然后再次执行到 `BinarySearch`
@@ -227,7 +227,7 @@ const res = main(arr, 77);
 
 <div align='center'>
   <img src="./images/complexity/time-summary.png" style="zoom:80%;" />
-  <span style="font-size:12px; float:right">参见《算法 4》P117</span>
+  <span class="comment-alg4-book">参见《算法 4》P117</span>
 </div>
 
 ## 3. 空间复杂度 {#space}

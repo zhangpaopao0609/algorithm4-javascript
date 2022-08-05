@@ -91,7 +91,7 @@ console.log(m.size);
    书中给出了背包的 API
    <div align='center'>
      <img src="./images/basic/bag.png" style="zoom:80%;" />
-     <span style="font-size:12px; float:right">参见《算法 4》P74</span>
+     <span class="comment-alg4-book">参见《算法 4》P74</span>
    </div>
 
 3. 使用 `Map` 模拟标准的背包
@@ -161,7 +161,7 @@ console.log(m.size);
 2. 队列的 API
 <div align='center'>
   <img src="./images/basic/queue.png" style="zoom:80%;" />
-  <span style="font-size:12px; float:right">参见《算法 4》P74</span>
+  <span class="comment-alg4-book">参见《算法 4》P74</span>
 </div>
 
 3. 使用数组模拟标准队列
@@ -222,7 +222,7 @@ console.log(q, e);
 2. 栈的 API
 <div align='center'>
   <img src="./images/basic/stack.png" style="zoom:80%;" />
-  <span style="font-size:12px; float:right">参见《算法 4》P74</span>
+  <span class="comment-alg4-book">参见《算法 4》P74</span>
 </div>
 
 3. 使用数组模拟标准栈

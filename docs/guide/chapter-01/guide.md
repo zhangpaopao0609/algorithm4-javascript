@@ -11,7 +11,7 @@ returnToTop: true
 
 <div align='center'>
   <img src="./images/index/catalog.png" style="zoom:80%;" />
-  <span style="font-size:12px; float:right">参见《算法 4》目录</span>
+  <span class="comment-alg4-book">参见《算法 4》目录</span>
 </div>
 
 第一章主要介绍一些基础的知识，为后续的章节做铺垫。
