@@ -230,7 +230,7 @@ console.log(JSON.stringify(first, null, 2));
       <p class="image-title">图3：链表结尾插入新结点</p>
     </div>
 
-   关键点就在于：**如何找到尾结点**。其实非常的简单，一个链表中什么样的结点是尾结点呢？有什么样的特征呢？那就是<span style="color: red">**链表结点的指针域指向 null 的结点便是尾结点**</span>。所以，只需要从表头开始，一步一步地往下循环查找，一直查找到某个结点的指针指向 null 停止。
+   关键点就在于：**如何找到尾结点**。其实非常的简单，一个链表中什么样的结点是尾结点呢？有什么样的特征呢？那就是<span class="redBold">链表结点的指针域指向 null 的结点便是尾结点</span>。所以，只需要从表头开始，一步一步地往下循环查找，一直查找到某个结点的指针指向 null 停止。
 
    ```js
    function insertNodeInTail(link, node) {

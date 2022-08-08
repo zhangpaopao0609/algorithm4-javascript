@@ -65,7 +65,7 @@ returnToTop: true
   <p class="image-title">图2：二分查找 50， 仅需查找 5 次</p>
 </div>
 
-在升序数组中，每次去查找<span style="color: red">查找范围内</span>的中间的元素，这样算法的每次循环都会将查找的范围缩小一半。
+在升序数组中，每次去查找<span class="redBold">查找范围内</span>的中间的元素，这样算法的每次循环都会将查找的范围缩小一半。
 
 - 如果被查找的键等于 `arr[mid]`
 - 如果被查找的键大于 `arr[mid]`，那么说明这个键一定在 `arr[mid]` 的右边，这样就将范围缩小一半了

@@ -68,7 +68,7 @@ function complexSum(a, b, c, d) {
 
 函数 `sum1ToN` 在每次调用时，因为包含 `for` 循环，其中 `let i = 1; i <= n; i++` 会执行 **n + 1** 次（1,2,3...n-1,n,n+1），`sum += i` 会执行 **n** 次，其它的语句都仅会执行一次。
 
-<span style="color: red">**当输入的 n 为无限大时，记作 N，其它语句的执行时间就微不足道了**</span>，整个程序耗费的时间完全依赖于 N，所以，我们认为这个程序的时间复杂度为 O(N)，**它所耗费的时间与 N 成正比**。
+<span class="redBold">当输入的 n 为无限大时，记作 N，其它语句的执行时间就微不足道了</span>，整个程序耗费的时间完全依赖于 N，所以，我们认为这个程序的时间复杂度为 O(N)，**它所耗费的时间与 N 成正比**。
 
 ```js
 function sum1ToN(n) {
@@ -83,12 +83,12 @@ function sum1ToN(n) {
 
 ### 2.3. O(N^2) {#t-o-n-2}
 
-函数 `NMMultiply` 在执行时，外层的循环 `for (let i = 1; i < n; i++) ` 会执行 **n** 次，内层的循环 `for (let j = 1; j < m; j++)` 会执行 <span style="color: red">**n \* m** </span> 次。
+函数 `NMMultiply` 在执行时，外层的循环 `for (let i = 1; i < n; i++) ` 会执行 **n** 次，内层的循环 `for (let j = 1; j < m; j++)` 会执行 <span class="redBold">**n \* m** </span> 次。
 
 :::tip
 这里简单解释一下：
 
-外层的循环 `for (let i = 1; i < n; i++) ` 每执行一次，内层循环 `for (let j = 1; j < m; j++)` 就会执行 m 次，所以内层循环总共会执行 <span style="color: red">**n \* m** </span> 次，
+外层的循环 `for (let i = 1; i < n; i++) ` 每执行一次，内层循环 `for (let j = 1; j < m; j++)` 就会执行 m 次，所以内层循环总共会执行 <span class="redBold">**n \* m** </span> 次，
 :::
 
 ```js
@@ -105,7 +105,7 @@ function NMMultiply(n, m) {
 }
 ```
 
-<span style="color: red">**当输入的 n 和 m 为无限大时，记作 N, M，其它语句的执行时间就微不足道了**</span>，而且我们还可以认为 N 和 M 相等，N \* M ≈ N<sup>2</sup>，整个程序执行的时间与 N<sup>2</sup> 成正比，所以，我们认为这个程序的时间复杂度为 O(N<sup>2</sup>)
+<span class="redBold">当输入的 n 和 m 为无限大时，记作 N, M，其它语句的执行时间就微不足道了</span>，而且我们还可以认为 N 和 M 相等，N \* M ≈ N<sup>2</sup>，整个程序执行的时间与 N<sup>2</sup> 成正比，所以，我们认为这个程序的时间复杂度为 O(N<sup>2</sup>)
 
 我们再来看一个非常典型的 时间复杂度为 O(n<sup>2</sup>) 的程序 —— 冒泡排序。
 
@@ -122,7 +122,7 @@ function NMMultiply(n, m) {
 2. 内层循环 `for (let j = i + 1; j < n; j++)` 将执行 1 次
 3. 外层循环 `for (let i = 0; i < n - 1; i++)` 执行第 n 次 `i=n-1`，终止
 
-因此，可计算得出，外层循环总共执行 n 次，内层循环总执行 n + (n-1) + (n-2) + ... + 1，即 (n<sup>2</sup> + n) / 2 次，<span style="color: red">**当输入的 n 为无限大时**</span>，可以认为内层循环需要执行 n<sup>2</sup> 次，因此，我们认为这个程序的时间复杂度为 O(n<sup>2</sup>)
+因此，可计算得出，外层循环总共执行 n 次，内层循环总执行 n + (n-1) + (n-2) + ... + 1，即 (n<sup>2</sup> + n) / 2 次，<span class="redBold">**当输入的 n 为无限大时**</span>，可以认为内层循环需要执行 n<sup>2</sup> 次，因此，我们认为这个程序的时间复杂度为 O(n<sup>2</sup>)
 
 :::tip
 可以结合注释来看，相信会更加清晰
@@ -176,9 +176,9 @@ console.log(arr);
 其它的情形，比如在中途找到了对应的值，我们暂时先不考虑。
 :::
 
-函数 `BinarySearch` 中的每一条语句只会执行一次，因此，我们认为 `BinarySearch` 的**时间复杂度本身其实是 O(1)的**，但是，想要最终完成 `main` 函数对于 `key` 的查找，<span style="color: red">**`BinarySearch` 在最坏的情形下会执行 `lgn` 次**</span>。
+函数 `BinarySearch` 中的每一条语句只会执行一次，因此，我们认为 `BinarySearch` 的**时间复杂度本身其实是 O(1)的**，但是，想要最终完成 `main` 函数对于 `key` 的查找，<span class="redBold">`BinarySearch` 在最坏的情形下会执行 `lgn` 次</span>。
 
-<span style="color: red">**当输入的 n 为无限大时，记作 N**</span>，我们认为这个程序的时间复杂度为 O(lgN)
+<span class="redBold">当输入的 n 为无限大时，记作 N</span>，我们认为这个程序的时间复杂度为 O(lgN)
 
 :::tip
 想必你肯定想知道 `BinarySearch` 执行 lgn 次是怎么来的吧！
@@ -278,7 +278,7 @@ function complexSum(a, b, c, d) {
 - `arr[i] = i` 每执行一次，就会增加一个元素，相应的就需要多占用一个临时空间，总共会执行 n 次，因此会需要 n 个临时空间
 - 输出需要 1 个空间
 
-总计需要 n+4 个空间，<span style="color: red">**当输入的 n 为无限大时，记作 N**</span>，程序的运行时所需要的空间依赖输入 N，与 N 成正比，因此，我们认为这个程序的空间复杂度为 O(N)
+总计需要 n+4 个空间，<span class="redBold">当输入的 n 为无限大时，记作 N</span>，程序的运行时所需要的空间依赖输入 N，与 N 成正比，因此，我们认为这个程序的空间复杂度为 O(N)
 
 ```js
 function numToArr(n) {
