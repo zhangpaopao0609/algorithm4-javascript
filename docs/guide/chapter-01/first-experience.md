@@ -15,6 +15,8 @@ returnToTop: true
 
 - 最直接最简单简单的方法：从头到尾遍历这个数组
 
+  :::details 点击查看
+
   ```js
   const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
 
@@ -42,7 +44,8 @@ returnToTop: true
   - 最好的情况是仅需要循环 1 次（0）
   - 最坏的情况是需要循环 14 次（98）
 
-因此，算法时间复杂度为 O(N)，同时只有一个变量存储在内存中，因此算法空间复杂度为 O(1)。
+  因此，算法时间复杂度为 O(N)，同时只有一个变量存储在内存中，因此算法空间复杂度为 O(1)。
+  :::
 
 > 要是你跟我说用什么 `indexOf, findIndex`，我只能说，兄弟，别搞。它们的底层还是基础算法。
 
@@ -60,69 +63,97 @@ returnToTop: true
   <p class="image-title">图2：二分查找 50， 仅需查找 5 次</p>
 </div>
 
-在升序数组中，每次去查找中间的元素，这样算法的每次循环都会将查找的范围缩小一半。
+在升序数组中，每次去查找<span style="color: red">查找范围内</span>的中间的元素，这样算法的每次循环都会将查找的范围缩小一半。
 
 - 如果被查找的键等于 `arr[mid]`
 - 如果被查找的键大于 `arr[mid]`，那么说明这个键一定在 `arr[mid]` 的右边，这样就将范围缩小一半了
 - 同样，如果被查找的键小于 `arr[mid]`，那么说明这个键一定在 `arr[mid]` 的左边
 
-1. 迭代版本
+一直循环下去，直到循环终止。
 
-   ```js
-   function BinarySearch(arr, key) {
-     let left = 0;
-     let right = arr.length - 1;
-     while (left <= right) {
-       const mid = left + ((right - left) >> 1);
-       const now = arr[mid];
-       if (now > key) {
-         right = mid - 1;
-       } else if (now < key) {
-         left = mid + 1;
-       } else {
-         return mid;
-       }
-     }
-     return -1;
-   }
+:::tip
+循环终止只有两种情况：
 
-   function main(arr, key) {
-     return BinarySearch(arr, key);
-   }
+1. 查找到了对应的元素
+2. 没有查找到，left 指针越过了 right
+   :::
+3. 迭代版本
 
-   const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
+:::details 点击查看
 
-   const res = main(arr, 48);
-   console.log(res);
-   ```
+```js
+function BinarySearch(arr, key) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left <= right) {
+    const mid = left + ((right - left) >> 1);
+    const now = arr[mid];
+    if (now > key) {
+      right = mid - 1;
+    } else if (now < key) {
+      left = mid + 1;
+    } else {
+      return mid;
+    }
+  }
+  return -1;
+}
+
+function main(arr, key) {
+  return BinarySearch(arr, key);
+}
+
+const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
+
+const res = main(arr, 48);
+console.log(res);
+```
+
+:::
 
 2. 递归版本
+   :::details 点击查看
 
-   ```js
-   function BinarySearch(arr, left, right, key) {
-     if (left > right) return -1;
-     const mid = left + ((right - left) >> 1);
-     const now = arr[mid];
-     if (now > key) {
-       return BinarySearch(arr, left, mid - 1, key);
-     } else if (now < key) {
-       return BinarySearch(arr, mid + 1, right, key);
-     } else {
-       return mid;
-     }
-   }
+```js
+function BinarySearch(arr, left, right, key) {
+  if (left > right) return -1;
+  const mid = left + ((right - left) >> 1);
+  const now = arr[mid];
+  if (now > key) {
+    return BinarySearch(arr, left, mid - 1, key);
+  } else if (now < key) {
+    return BinarySearch(arr, mid + 1, right, key);
+  } else {
+    return mid;
+  }
+}
 
-   function main(arr, key) {
-     return BinarySearch(arr, 0, arr.length - 1, key);
-   }
+function main(arr, key) {
+  return BinarySearch(arr, 0, arr.length - 1, key);
+}
 
-   const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
+const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
 
-   const res = main(arr, 48);
-   console.log(res);
-   ```
+const res = main(arr, 48);
+console.log(res);
+```
+
+:::
 
 二分法查找:
 
 - 时间复杂度为 O(lgN)
 - 算法空间复杂度递归版本 O(lgN), 迭代版本 O(1)。
+
+## 3. 小结 {#summary}
+
+实现同样的功能，不同的算法，程序需要执行的次数完全不同，比如升序数组查找元素下标（在最坏的情况下）：
+
+- 普通循环查找需要 N 次
+- 二分查找仅需要 lgN 次
+
+:::tip
+N 指数组的长度。
+
+lgN 如何计算出来的下一小节会讲。
+:::
