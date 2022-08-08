@@ -51,7 +51,7 @@ returnToTop: true
 
 ## 2. 二分查找 {#binary-search}
 
-之后我们会详细的讲解二分查找，这里只是简单的让大家初步感受一些算法的魅力。
+二分查找的详细查找过程，一起来感受一下吧！！
 
 <div align='center'>
   <img src="./images/binary-search/search-23.png" alt="image-20220329080948444" style="zoom:36%;" />
