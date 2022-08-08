@@ -51,6 +51,8 @@ returnToTop: true
 
 ## 2. 二分查找 {#binary-search}
 
+### 2.1 算法讲解 {#explanation}
+
 二分查找的详细查找过程，一起来感受一下吧！！
 
 <div align='center'>
@@ -77,73 +79,87 @@ returnToTop: true
 1. 查找到了对应的元素
 2. 没有查找到，left 指针越过了 right
    :::
-3. 迭代版本
 
-:::details 点击查看
+### 2.2 代码实现 {#js-code}
 
-```js
-function BinarySearch(arr, key) {
-  let left = 0;
-  let right = arr.length - 1;
-  while (left <= right) {
-    const mid = left + ((right - left) >> 1);
-    const now = arr[mid];
-    if (now > key) {
-      right = mid - 1;
-    } else if (now < key) {
-      left = mid + 1;
-    } else {
-      return mid;
-    }
-  }
-  return -1;
-}
+1. 迭代版本
 
-function main(arr, key) {
-  return BinarySearch(arr, key);
-}
+   二分查找的迭代版本
 
-const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
-
-const res = main(arr, 48);
-console.log(res);
-```
-
-:::
-
-2. 递归版本
    :::details 点击查看
 
-```js
-function BinarySearch(arr, left, right, key) {
-  if (left > right) return -1;
-  const mid = left + ((right - left) >> 1);
-  const now = arr[mid];
-  if (now > key) {
-    return BinarySearch(arr, left, mid - 1, key);
-  } else if (now < key) {
-    return BinarySearch(arr, mid + 1, right, key);
-  } else {
-    return mid;
-  }
-}
+   ```js
+   function BinarySearch(arr, key) {
+     let left = 0;
+     let right = arr.length - 1;
+     while (left <= right) {
+       const mid = left + ((right - left) >> 1);
+       const now = arr[mid];
+       if (now > key) {
+         right = mid - 1;
+       } else if (now < key) {
+         left = mid + 1;
+       } else {
+         return mid;
+       }
+     }
+     return -1;
+   }
 
-function main(arr, key) {
-  return BinarySearch(arr, 0, arr.length - 1, key);
-}
+   function main(arr, key) {
+     return BinarySearch(arr, key);
+   }
 
-const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
+   const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
 
-const res = main(arr, 48);
-console.log(res);
-```
+   const res = main(arr, 48);
+   console.log(res);
+   ```
 
-:::
+   :::
 
-二分法查找:
+2. 递归版本
+
+   二分查找的递归版本
+
+   :::details 点击查看
+
+   ```js
+   function BinarySearch(arr, left, right, key) {
+     if (left > right) return -1;
+     const mid = left + ((right - left) >> 1);
+     const now = arr[mid];
+     if (now > key) {
+       return BinarySearch(arr, left, mid - 1, key);
+     } else if (now < key) {
+       return BinarySearch(arr, mid + 1, right, key);
+     } else {
+       return mid;
+     }
+   }
+
+   function main(arr, key) {
+     return BinarySearch(arr, 0, arr.length - 1, key);
+   }
+
+   const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
+
+   const res = main(arr, 48);
+   console.log(res);
+   ```
+
+   :::
+
+### 2.3. 小结 {#bs-summary}
+
+在 <span class="redBold">已排序的数组</span> 中查找元素可以直接选择使用二分法：
 
 - 时间复杂度为 O(lgN)
 - 算法空间复杂度递归版本 O(lgN), 迭代版本 O(1)
+
+:::tip
+升序和降序数组都是一样的
+:::
 
 ## 3. 小结 {#summary}
 
