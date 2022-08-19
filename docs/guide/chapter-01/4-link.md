@@ -376,6 +376,32 @@ console.log(JSON.stringify(first, null, 2));
 
 2. 编写一个方法 delete()，接收一个参数 k，删除链表的第 k 个元素，如果它存在的话
 
+   :::details 点击查看参考答案
+
+   ```js
+   function deleteKNode_v2(link, k) {
+     if (link === null) throw Error('link is null');
+     if (k <= 0) throw Error('k should bgt 0');
+
+     // 虚拟头结点
+     let curr = new Node(null, link);
+     // 循环 k - 1 次，因为要找的是第 k-1 个结点，所以循环 k-1 次就能找到
+     for (let i = 1; i < k - 1; i++) {
+       curr = curr.next;
+       // 如果已经走到了尾结点
+       if (curr.next === null) return link;
+     }
+     // 删除第 k 个结点
+     curr.next = curr.next.next;
+
+     return link;
+   }
+
+   console.log(JSON.stringify(deleteKNode_v2(first, 11), null, 2));
+   ```
+
+   :::
+
 3. 假设 x 是一条链表中的某个结点，下面这段代码做了什么？
 
    ```js
@@ -383,14 +409,27 @@ console.log(JSON.stringify(first, null, 2));
    x.next = t;
    ```
 
-4. 为什么下面这段代码和上一道题中的代码效果不同
+   :::info
+   t 也是一个结点哈
+   :::
+
+   :::details 点击查看参考答案
+   在 x 结点后添加 t 结点
+   :::
+
+4. 下面这段代码又做了什么呢？
 
    ```js
    x.next = t;
    t.next = x.next;
    ```
 
+   :::details 点击查看参考答案
+   x 结点指向了 t 结点，t 结点指向了自己。
+   :::
+
 5. 编写一个函数，接受一条链表的首结点作为参数，（破坏性地）将链表反转并返回结果链表的首结点
+   :::details 点击查看参考答案
 
    ```js
    function reverse_v2(link) {
@@ -408,11 +447,14 @@ console.log(JSON.stringify(first, null, 2));
    }
    ```
 
+   :::
+
 ## 4. leetcode 题目
 
 1. 给你单链表的头指针 head 和两个整数 left 和 right，其中 left <= right 。请你反转从位置 left 到位置 right 的链表结点，返回反转后的链表。
 
    - 解法 1
+     :::details 点击查看参考答案
 
      ```js
      class Node {
@@ -466,7 +508,10 @@ console.log(JSON.stringify(first, null, 2));
      }
      ```
 
+     :::
+
    - 解法 2
+     :::details 点击查看参考答案
 
      ```js
      function reverseBetweenNMBetter(head, left, right) {
@@ -494,35 +539,42 @@ console.log(JSON.stringify(first, null, 2));
      }
      ```
 
+     :::
+
    - 解法 3
 
-     ```js
-     function reverseBetweenNMPerfect(head, left, right) {
-       const dummyNode = new Node(-1, head); // 虚拟头结点
-       let preLeft = dummyNode; // 左截断结点前一个结点
+   :::details 点击查看参考答案
 
-       for (let i = 0; i < left - 1; i++) {
-         preLeft = preLeft.next;
-       }
+   ```js
+   function reverseBetweenNMPerfect(head, left, right) {
+     const dummyNode = new Node(-1, head); // 虚拟头结点
+     let preLeft = dummyNode; // 左截断结点前一个结点
 
-       let curr = preLeft.next;
-       let leftNode = curr;
-       for (let i = 0; i < right - left; i++) {
-         const next = curr.next;
-         curr.next = next.next;
-         next.next = leftNode;
-         leftNode = next;
-       }
-
-       preLeft.next = leftNode;
-
-       return dummyNode.next;
+     for (let i = 0; i < left - 1; i++) {
+       preLeft = preLeft.next;
      }
-     ```
+
+     let curr = preLeft.next;
+     let leftNode = curr;
+     for (let i = 0; i < right - left; i++) {
+       const next = curr.next;
+       curr.next = next.next;
+       next.next = leftNode;
+       leftNode = next;
+     }
+
+     preLeft.next = leftNode;
+
+     return dummyNode.next;
+   }
+   ```
+
+   :::
 
 2. 给你两个单链表的头结点 headA 和 headB ，两条链表可能相交也可能不相交，如果相交请你找出并返回两个单链表相交的起始结点，如果不存在相交结点，返回 null。
 
    - 解法 1
+     :::details 点击查看参考答案
 
      ```js
      const getIntersectionNode_v1 = function (headA, headB) {
@@ -544,17 +596,22 @@ console.log(JSON.stringify(first, null, 2));
      };
      ```
 
-   - 解法 2
+     :::
 
-     ```js
-     const getIntersectionNode_v2 = function (headA, headB) {
-       if (headA === null || headB === null) return null;
-       let pA = headA,
-         pB = headB;
-       while (pA !== pB) {
-         pA = pA === null ? headB : pA.next;
-         pB = pB === null ? headA : pB.next;
-       }
-       return pA;
-     };
-     ```
+   - 解法 2
+     :::details 点击查看参考答案
+
+   ```js
+   const getIntersectionNode_v2 = function (headA, headB) {
+     if (headA === null || headB === null) return null;
+     let pA = headA,
+       pB = headB;
+     while (pA !== pB) {
+       pA = pA === null ? headB : pA.next;
+       pB = pB === null ? headA : pB.next;
+     }
+     return pA;
+   };
+   ```
+
+   :::

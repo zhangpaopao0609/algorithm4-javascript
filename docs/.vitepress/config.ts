@@ -99,7 +99,23 @@ function guideSidebar() {
         },
         { text: '3. 时间和空间复杂度', link: '/guide/chapter-01/complexity' },
         { text: '4. 链表', link: '/guide/chapter-01/link' },
-        { text: '5. 练习', link: '/guide/chapter-01/practice' },
+      ],
+    },
+    {
+      text: '第二章：基础',
+      collapsible: true,
+      items: [
+        { text: '0. 本章指引', link: '/guide/chapter-01/guide' },
+        {
+          text: '1. 背包、队列和栈',
+          link: '/guide/chapter-01/bag-queue-stack',
+        },
+        {
+          text: '2. 初体验——二分查找',
+          link: '/guide/chapter-01/first-experience',
+        },
+        { text: '3. 时间和空间复杂度', link: '/guide/chapter-01/complexity' },
+        { text: '4. 链表', link: '/guide/chapter-01/link' },
       ],
     },
   ];

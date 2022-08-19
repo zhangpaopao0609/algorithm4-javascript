@@ -11,7 +11,7 @@ outline: deep
 在程序世界中，解决一个问题有多种方式，这些方式最基本的要满足：
 
 1. 能完整地解决问题 —— 准确性
-2. 根据这种方式写出的程序在任何情况下都么么和成功执行 —— 鲁棒性（也称为健壮性）
+2. 根据这种方式写出的程序在任何情况下都能成功执行 —— 鲁棒性（也称为健壮性）
 
 :::tip
 需要注意的是：算法更多的是思想，程序更多的是实现。思想是不变的，实现却有多种（比如不同的语言下不同的实现）
@@ -36,7 +36,7 @@ outline: deep
 
 时间复杂度并不是指一个程序真正运行的时间，因为这也无法度量，不同的计算机、不同的输入参数都会导致程序运行的时间不同。
 
-时间复杂度是用于近似衡量一个算法运行的时间，这个方法非常有效，通常用 O 来记录（一般读作 Big O）
+时间复杂度是用于近似衡量一个算法运行的时间，这个方法非常有效，通常用 O 来记录（一般读作 Big O）。
 
 > 为什么用 O 来记录，[点击查看详细细节](https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/)
 
@@ -83,73 +83,77 @@ function sum1ToN(n) {
 
 ### 2.3. O(N^2) {#t-o-n-2}
 
-函数 `NMMultiply` 在执行时，外层的循环 `for (let i = 1; i < n; i++) ` 会执行 **n** 次，内层的循环 `for (let j = 1; j < m; j++)` 会执行 <span class="redBold">**n \* m** </span> 次。
+1. 初级版本
 
-:::tip
-这里简单解释一下：
+   函数 `NMMultiply` 在执行时，外层的循环 `for (let i = 1; i < n; i++) ` 会执行 **n** 次，内层的循环 `for (let j = 1; j < m; j++)` 会执行 <span class="redBold">**n \* m** </span> 次。
 
-外层的循环 `for (let i = 1; i < n; i++) ` 每执行一次，内层循环 `for (let j = 1; j < m; j++)` 就会执行 m 次，所以内层循环总共会执行 <span class="redBold">**n \* m** </span> 次，
-:::
+   :::tip
+   这里简单解释一下：
 
-```js
-function NMMultiply(n, m) {
-  let mli = 1; // 每次函数调用仅会执行一次
-  for (let i = 1; i < n; i++) {
-    // 每次函数调时执行 n 次
-    for (let j = 1; j < m; j++) {
-      // 每次函数调时执行 n * m 次
-      mli += i * j; // 每次函数调时执行 n * m 次
-    }
-  }
-  return mli;
-}
-```
+   外层的循环 `for (let i = 1; i < n; i++) ` 每执行一次，内层循环 `for (let j = 1; j < m; j++)` 就会执行 m 次，所以内层循环总共会执行 <span class="redBold">**n \* m** </span> 次，
+   :::
 
-<span class="redBold">当输入的 n 和 m 为无限大时，记作 N, M，其它语句的执行时间就微不足道了</span>，而且我们还可以认为 N 和 M 相等，N \* M ≈ N<sup>2</sup>，整个程序执行的时间与 N<sup>2</sup> 成正比，所以，我们认为这个程序的时间复杂度为 O(N<sup>2</sup>)
+   ```js
+   function NMMultiply(n, m) {
+     let mli = 1; // 每次函数调用仅会执行一次
+     for (let i = 1; i < n; i++) {
+       // 每次函数调时执行 n 次
+       for (let j = 1; j < m; j++) {
+         // 每次函数调时执行 n * m 次
+         mli += i * j; // 每次函数调时执行 n * m 次
+       }
+     }
+     return mli;
+   }
+   ```
 
-我们再来看一个非常典型的 时间复杂度为 O(n<sup>2</sup>) 的程序 —— 冒泡排序。
+   <span class="redBold">当输入的 n 和 m 为无限大时，记作 N, M，其它语句的执行时间就微不足道了</span>，而且我们还可以认为 N 和 M 相等，N \* M ≈ N<sup>2</sup>，整个程序执行的时间与 N<sup>2</sup> 成正比，所以，我们认为这个程序的时间复杂度为 O(N<sup>2</sup>)
 
-我们来一步步看函数 `bubbleSort` 执行的过程：
+2. 中级版本
 
-1. 外层循环 `for (let i = 0; i < n - 1; i++)` 执行第 1 次 `i=0`
-2. 内层循环 `for (let j = i + 1; j < n; j++)` 将执行 n 次
-3. 外层循环 `for (let i = 0; i < n - 1; i++)` 执行第 2 次 `i=1`
-4. 内层循环 `for (let j = i + 1; j < n; j++)` 将执行 n-1 次
+   我们再来看一个非常典型的 时间复杂度为 O(n<sup>2</sup>) 的程序 —— 冒泡排序。
 
-一直循环下去...直到
+   我们来一步步看函数 `bubbleSort` 执行的过程：
 
-1. 外层循环 `for (let i = 0; i < n - 1; i++)` 执行第 n-1 次 `i=n-2`
-2. 内层循环 `for (let j = i + 1; j < n; j++)` 将执行 1 次
-3. 外层循环 `for (let i = 0; i < n - 1; i++)` 执行第 n 次 `i=n-1`，终止
+   1. 外层循环 `for (let i = 0; i < n - 1; i++)` 执行第 1 次 `i=0`
+   2. 内层循环 `for (let j = i + 1; j < n; j++)` 将执行 n 次
+   3. 外层循环 `for (let i = 0; i < n - 1; i++)` 执行第 2 次 `i=1`
+   4. 内层循环 `for (let j = i + 1; j < n; j++)` 将执行 n-1 次
 
-因此，可计算得出，外层循环总共执行 n 次，内层循环总执行 n + (n-1) + (n-2) + ... + 1，即 (n<sup>2</sup> + n) / 2 次，<span class="redBold">**当输入的 n 为无限大时**</span>，可以认为内层循环需要执行 n<sup>2</sup> 次，因此，我们认为这个程序的时间复杂度为 O(n<sup>2</sup>)
+   一直循环下去...直到
 
-:::tip
-可以结合注释来看，相信会更加清晰
-:::
+   1. 外层循环 `for (let i = 0; i < n - 1; i++)` 执行第 n-1 次 `i=n-2`
+   2. 内层循环 `for (let j = i + 1; j < n; j++)` 将执行 1 次
+   3. 外层循环 `for (let i = 0; i < n - 1; i++)` 执行第 n 次 `i=n-1`，终止
 
-```js
-// 冒泡排序就是典型的 O(n^2) 的算法
-function bubbleSort(arr) {
-  const n = arr.length; // 每次函数调用时仅会执行一次
-  for (let i = 0; i < n - 1; i++) {
-    // 每次函数调用会执行 n 次，0,1,2,3...n-1
-    for (let j = i + 1; j < n; j++) {
-      // 每次函数调用会执行 n(n+1)/2 次，即 (n^2 + n) / 2 次，n + (n-1) + (n-2) + ... + 1
-      if (arr[i] > arr[j]) {
-        // 无法估计，但最多 n(n-1)/2 次，最少 0 次
-        const temp = arr[i]; // 无法估计，但最多 n(n-1)/2 次，最少 0 次
-        arr[i] = arr[j]; // 无法估计，但最多 n(n-1)/2 次，最少 0 次
-        arr[j] = temp; // 无法估计，但最多 n(n-1)/2 次，最少 0 次
-      }
-    }
-  }
-}
+   因此，可计算得出，外层循环总共执行 n 次，内层循环总执行 n + (n-1) + (n-2) + ... + 1，即 (n<sup>2</sup> + n) / 2 次，<span class="redBold">**当输入的 n 为无限大时**</span>，可以认为内层循环需要执行 n<sup>2</sup> 次，因此，我们认为这个程序的时间复杂度为 O(n<sup>2</sup>)
 
-const arr = [12, 2, 6, 4, 11, 1];
-bubbleSort(arr);
-console.log(arr);
-```
+   :::tip
+   可以结合注释来看，相信会更加清晰
+   :::
+
+   ```js
+   // 冒泡排序就是典型的 O(n^2) 的算法
+   function bubbleSort(arr) {
+     const n = arr.length; // 每次函数调用时仅会执行一次
+     for (let i = 0; i < n - 1; i++) {
+       // 每次函数调用会执行 n 次，0,1,2,3...n-1
+       for (let j = i + 1; j < n; j++) {
+         // 每次函数调用会执行 n(n+1)/2 次，即 (n^2 + n) / 2 次，n + (n-1) + (n-2) + ... + 1
+         if (arr[i] > arr[j]) {
+           // 无法估计，但最多 n(n-1)/2 次，最少 0 次
+           const temp = arr[i]; // 无法估计，但最多 n(n-1)/2 次，最少 0 次
+           arr[i] = arr[j]; // 无法估计，但最多 n(n-1)/2 次，最少 0 次
+           arr[j] = temp; // 无法估计，但最多 n(n-1)/2 次，最少 0 次
+         }
+       }
+     }
+   }
+
+   const arr = [12, 2, 6, 4, 11, 1];
+   bubbleSort(arr);
+   console.log(arr);
+   ```
 
 ### 2.4. O(lgN) {#t-o-lg-n}
 
@@ -158,36 +162,22 @@ console.log(arr);
 我们来细细的看：
 
 <div align='center'>
-  <img src="./images/binary-search/01.png" alt="image-20220329080948444" style="zoom:70%;" />
-  <span class="comment-alg4-book">参见《算法 4》P29</span>
+  <img src="./images/binary-search/search-23.png" alt="image-20220329080948444" style="zoom:36%;" />
+  <p class="image-title">二分查找 23</p>
 </div>
 
 1. `BinarySearch` 开始第 1 次执行，此时，`left` 到 `right` 的距离为数组的长度 n，然后再次执行到 `BinarySearch`
-2. `BinarySearch` 再次被调用，第 2 次执行，此时，`left` 到 `right` 的距离已经为数组长度的一半了 n/2
-3. `BinarySearch` 再次被调用，第 3 次执行，此时，`left` 到 `right` 的距离已经为数组长度的一半的一半了 n/4
+2. `BinarySearch` 再次被调用，第 2 次执行，此时，`left` 到 `right` 的距离已经为数组长度的一半了 `n/2`
+3. `BinarySearch` 再次被调用，第 3 次执行，此时，`left` 到 `right` 的距离已经为数组长度的一半的一半了 `n/4`
 
 一直循环下去...直到
 
-1. `BinarySearch` 再次被调用，第 lgn 次执行，此时，`left` 到 `right` 的距离已经为 0
+4. `BinarySearch` 再次被调用，第 `lgn` 次执行，此时，`left` 到 `right` 的距离已经为 0
 
 :::tip
 我们这里是考虑最坏的情形，即二分到最后（即 left = right）才找到结果或者最终都没有结果（返回 -1）。
 
 其它的情形，比如在中途找到了对应的值，我们暂时先不考虑。
-:::
-
-函数 `BinarySearch` 中的每一条语句只会执行一次，因此，我们认为 `BinarySearch` 的**时间复杂度本身其实是 O(1)的**，但是，想要最终完成 `main` 函数对于 `key` 的查找，<span class="redBold">`BinarySearch` 在最坏的情形下会执行 `lgn` 次</span>。
-
-<span class="redBold">当输入的 n 为无限大时，记作 N</span>，我们认为这个程序的时间复杂度为 O(lgN)
-
-:::tip
-想必你肯定想知道 `BinarySearch` 执行 lgn 次是怎么来的吧！
-
-因：2<sup>x</sup> = n
-
-得：x = log<sub>2</sub><sup>n</sup>
-
-数学世界中 log<sub>10</sub> 可简写为 lg，但在程序的世界中 log<sub>2</sub> 便简写为 lg，因此 log<sub>2</sub><sup>n</sup> 便简写为 lg<sup>n</sup>
 :::
 
 ```js
@@ -212,6 +202,20 @@ const arr = [10, 11, 12, 16, 18, 23, 29, 33, 48, 54, 57, 68, 77, 84, 98];
 
 const res = main(arr, 77);
 ```
+
+函数 `BinarySearch` 中的每一条语句只会执行一次，因此，我们认为 `BinarySearch` 的**时间复杂度本身其实是 O(1)的**，但是，想要最终完成 `main` 函数对于 `key` 的查找，<span class="redBold">`BinarySearch` 在最坏的情形下会执行 `lgn` 次</span>。
+
+<span class="redBold">当输入的 n 为无限大时，记作 N</span>，我们认为这个程序的时间复杂度为 O(lgN)
+
+:::tip
+想必你肯定想知道 `BinarySearch` 执行 lgn 次是怎么来的吧！
+
+因：2<sup>x</sup> = n
+
+得：x = log<sub>2</sub><sup>n</sup>
+
+数学世界中 log<sub>10</sub> 可简写为 lg，但在程序的世界中 log<sub>2</sub> 便简写为 lg，因此 log<sub>2</sub><sup>n</sup> 便简写为 lg<sup>n</sup>
+:::
 
 ### 2.5. O(NlgN) {#t-o-n-lg-n}
 
