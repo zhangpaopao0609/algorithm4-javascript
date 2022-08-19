@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ardor-zhang/Algorithm4-Javascript#readme",
   "devDependencies": {
+    "@algolia/client-search": "^4.14.2",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "husky": "^8.0.0",
