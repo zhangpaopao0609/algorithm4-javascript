@@ -88,34 +88,28 @@ function guideSidebar() {
       text: '第一章：基础',
       collapsible: true,
       items: [
-        { text: '0. 本章指引', link: '/guide/chapter-01/guide' },
+        { text: '0. 本章指引', link: '/guide/chapter-01/0-guide' },
         {
           text: '1. 背包、队列和栈',
-          link: '/guide/chapter-01/bag-queue-stack',
+          link: '/guide/chapter-01/1-bag-queue-stack',
         },
         {
           text: '2. 初体验——二分查找',
-          link: '/guide/chapter-01/first-experience',
+          link: '/guide/chapter-01/2-first-experience',
         },
-        { text: '3. 时间和空间复杂度', link: '/guide/chapter-01/complexity' },
-        { text: '4. 链表', link: '/guide/chapter-01/link' },
+        { text: '3. 时间和空间复杂度', link: '/guide/chapter-01/3-complexity' },
+        { text: '4. 链表', link: '/guide/chapter-01/4-link' },
       ],
     },
     {
       text: '第二章：基础',
       collapsible: true,
       items: [
-        { text: '0. 本章指引', link: '/guide/chapter-01/guide' },
+        { text: '0. 本章指引', link: '/guide/chapter-02/0-guide' },
         {
-          text: '1. 背包、队列和栈',
-          link: '/guide/chapter-01/bag-queue-stack',
+          text: '1. 基础排序',
+          link: '/guide/chapter-02/1-basic',
         },
-        {
-          text: '2. 初体验——二分查找',
-          link: '/guide/chapter-01/first-experience',
-        },
-        { text: '3. 时间和空间复杂度', link: '/guide/chapter-01/complexity' },
-        { text: '4. 链表', link: '/guide/chapter-01/link' },
       ],
     },
   ];
