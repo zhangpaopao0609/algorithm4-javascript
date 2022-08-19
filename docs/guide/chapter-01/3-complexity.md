@@ -56,11 +56,11 @@ function numSum(a, b) {
 
 ```js
 function complexSum(a, b, c, d) {
-  const c = Math.pow(a, 10); // 每次函数调用仅会执行一次
-  const d = b - 1; // 每次函数调用仅会执行一次
-  const e = c * 4; // 每次函数调用仅会执行一次
-  const f = Math.abs(d - 100); // 每次函数调用仅会执行一次
-  return c * d + e / f; // 每次函数调用仅会执行一次
+  const e = Math.pow(a, 10); // 每次函数调用仅会执行一次
+  const f = b - 1; // 每次函数调用仅会执行一次
+  const g = c * 4; // 每次函数调用仅会执行一次
+  const h = Math.abs(d - 100); // 每次函数调用仅会执行一次
+  return e * f + g / h; // 每次函数调用仅会执行一次
 }
 ```
 
@@ -234,6 +234,10 @@ const res = main(arr, 77);
   <span class="comment-alg4-book">参见《算法 4》P117</span>
 </div>
 
+- 如果程序运行时语句执行次数与输入无关，则认为该程序的时间复杂度就为 O(1)
+- 如果程序运行时某一条或多条语句执行次数与输入 N 成线性关系，则认为该程序的时间复杂度就为 O(N)
+- 如果程序运行时某一条或多条语句执行次数与输入 N2 成线性关系，则认为该程序的时间复杂度就为 O(N2)
+
 ## 3. 空间复杂度 {#space}
 
 空间复杂度和时间复杂度非常的类似，同样使用 O 来记录（Big O）
@@ -264,11 +268,11 @@ function numSum(a, b) {
 
 function complexSum(a, b, c, d) {
   // a, b, c, d 需要 4 个临时的变量空间
-  const c = Math.pow(a, 10); // c 需要 1 个临时的变量空间
-  const d = b - 1; // d 需要 1 个临时的变量空间
-  const e = c * 4; // e 需要 1 个临时的变量空间
-  const f = Math.abs(d - 100); // f 需要 1 个临时的变量空间
-  return c * d + e / f; // 需要 1 个临时的变量空间
+  const e = Math.pow(a, 10); // e 需要 1 个临时的变量空间
+  const f = b - 1; // f 需要 1 个临时的变量空间
+  const g = c * 4; // g 需要 1 个临时的变量空间
+  const h = Math.abs(d - 100); // h 需要 1 个临时的变量空间
+  return e * f + g / h; // 需要 1 个临时的变量空间
 }
 ```
 

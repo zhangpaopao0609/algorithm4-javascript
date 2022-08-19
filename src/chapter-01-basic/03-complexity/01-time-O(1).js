@@ -3,9 +3,9 @@ function numSum(a, b) {
 }
 
 function complexSum(a, b, c, d) {
-  const c = Math.pow(a, 10); // 每次函数调用仅会执行一次
-  const d = b - 1; // 每次函数调用仅会执行一次
-  const e = c * 4; // 每次函数调用仅会执行一次
-  const f = Math.abs(d - 100); // 每次函数调用仅会执行一次
-  return c * d + e / f; // 每次函数调用仅会执行一次
+  const e = Math.pow(a, 10); // 每次函数调用仅会执行一次
+  const f = b - 1; // 每次函数调用仅会执行一次
+  const g = c * 4; // 每次函数调用仅会执行一次
+  const h = Math.abs(d - 100); // 每次函数调用仅会执行一次
+  return e * f + g / h; // 每次函数调用仅会执行一次
 }
