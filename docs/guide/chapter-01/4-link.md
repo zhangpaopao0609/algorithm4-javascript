@@ -17,7 +17,7 @@ returnToTop: true
 
 ### 1.1 线性表 {#linear-l}
 
-线性表是一种按照线性存储结构，什么是线性存储结构呢？通俗的理解就是：一组数据存储在物理空间中，可以用“一根线”线性地把它串起来。
+线性表是一组线性存储结构的数据，什么是线性存储结构呢？通俗的理解就是：一组数据存储在物理空间中，可以用“一根线”线性地把它串起来。
 
 比如有这样一组数组：1，2，3，4，5，将其线性的存储起来，有两种方式：
 
@@ -34,17 +34,17 @@ returnToTop: true
 线性表的定义和特点的详细说明可以参见：《数据结构（C 语言版本）（第二版）》2.1 线性表的定义和特点
 :::
 
-### 1.2 线性表的顺序表示（顺序表）{#sequential-list}
+### 1.2 线性表的顺序存储（顺序表）{#sequential-list}
 
-线性表的顺序表示指的是用一组**地址连续的存储单元依次存储线性表的数据元素**，这种表示也称作线性表的顺序存储结构或顺序映像。通常，称这种存储结构的线性表为顺序表（Sequential List）。**其特点是，逻辑上相邻的数据元素，其物理次序也是相邻的**。
+线性表的顺序存储指的是用一组**地址连续的存储单元依次存储线性表的数据元素**，这种表示也称作线性表的顺序存储结构或顺序映像。通常，称这种存储结构的线性表为顺序表（Sequential List）。**其特点是，逻辑上相邻的数据元素，其物理次序也是相邻的**。
 
 在高级程序设计语言中，通常都用数组来描述数据结构中的顺序存储结构。
 
 1.1 中图 1 的第一种存储方式就是顺序存储结构 —— 顺序表
 
-### 1.3 线性表的顺序表示（链表）{#link-list}
+### 1.3 线性表的链式存储（链表）{#link-list}
 
-线性表链式存储结构的特点是：用一组任意的存储单元存储线性表的数据元素（这组存储单元可以是连续的，也可以是不连续的）。
+线性表的链式存储的特点是：**用一组任意的存储单元存储线性表的数据元素（这组存储单元可以是连续的，也可以是不连续的）**。
 
 因此，为了表示每个数据元素 a<sub>i</sub> 与其直接后继数据元素 a<sub>i+1</sub> 之间的逻辑关系，对数据元素 a<sub>i</sub> 来说，除了存储其本身的信息之外，还需存储一个指示其直接后继的信息（即直接后继的存储位置）。这两部分信息组成数据元素 a<sub>i</sub> 的存储映像，称为结点（node）。
 
@@ -283,9 +283,17 @@ console.log(JSON.stringify(first, null, 2));
    实现 LIFO 的 API。
 
    ```js
+   class Node {
+     constructor(value = null, next = null) {
+       this.value = value;
+       this.next = next;
+     }
+   }
+
+   // LIFO
    class StackByLink {
      link = null; // 其实这里也同样应该设置为私有属性的，但为了展示，这里就仍然使用普通属性
-     #size = 0;
+     #size = 0; // ES2022 正式为 class 添加了私有属性，方法是在属性名之前使用 # 表示。
 
      push(value) {
        this.#size += 1;
@@ -309,7 +317,29 @@ console.log(JSON.stringify(first, null, 2));
      isEmpty() {
        return !this.#size;
      }
+
+     forEach(cb) {
+       if (typeof cb === 'function') {
+         let p = this.link;
+         while (p !== null) {
+           cb(p.value);
+           p = p.next;
+         }
+       }
+     }
    }
+
+   const s = new StackByLink();
+   s.push(1);
+   s.push(2);
+   s.push(3);
+
+   console.log('s', s);
+   s.forEach((value) => console.log(value));
+
+   const sp = s.pop();
+   console.log('sp', sp);
+   console.log('s', s);
    ```
 
 2. 用链表实现队列
@@ -352,6 +382,16 @@ console.log(JSON.stringify(first, null, 2));
 
      isEmpty() {
        return !this.#size;
+     }
+
+     forEach(cb) {
+       if (typeof cb === 'function') {
+         let p = this.link;
+         while (p !== null) {
+           cb(p.value);
+           p = p.next;
+         }
+       }
      }
    }
    ```

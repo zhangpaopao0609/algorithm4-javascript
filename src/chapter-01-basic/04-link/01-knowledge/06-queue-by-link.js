@@ -42,6 +42,16 @@ class QueueByLink {
   isEmpty() {
     return !this.#size;
   }
+
+  forEach(cb) {
+    if (typeof cb === 'function') {
+      let p = this.link;
+      while (p !== null) {
+        cb(p.value);
+        p = p.next;
+      }
+    }
+  }
 }
 
 const q = new QueueByLink();
@@ -50,6 +60,7 @@ q.enqueue(2);
 q.enqueue(3);
 
 console.log(q);
+q.forEach((value) => console.log(value));
 
 const qp = q.dequeuq();
 console.log(qp);

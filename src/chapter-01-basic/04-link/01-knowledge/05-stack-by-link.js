@@ -32,6 +32,16 @@ class StackByLink {
   isEmpty() {
     return !this.#size;
   }
+
+  forEach(cb) {
+    if (typeof cb === 'function') {
+      let p = this.link;
+      while (p !== null) {
+        cb(p.value);
+        p = p.next;
+      }
+    }
+  }
 }
 
 const s = new StackByLink();
@@ -39,8 +49,9 @@ s.push(1);
 s.push(2);
 s.push(3);
 
-console.log(s);
+console.log('s', s);
+s.forEach((value) => console.log(value));
 
 const sp = s.pop();
-console.log(sp);
-console.log(s);
+console.log('sp', sp);
+console.log('s', s);
