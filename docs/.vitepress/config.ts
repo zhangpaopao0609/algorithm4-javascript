@@ -102,7 +102,7 @@ function guideSidebar() {
       ],
     },
     {
-      text: '第二章：基础',
+      text: '第二章：排序',
       collapsible: true,
       items: [
         { text: '0. 本章指引', link: '/guide/chapter-02/0-guide' },
