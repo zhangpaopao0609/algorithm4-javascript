@@ -583,33 +583,33 @@ console.log(JSON.stringify(first, null, 2));
 
    - 解法 3
 
-   :::details 点击查看参考答案
+     :::details 点击查看参考答案
 
-   ```js
-   function reverseBetweenNMPerfect(head, left, right) {
-     const dummyNode = new Node(-1, head); // 虚拟头结点
-     let preLeft = dummyNode; // 左截断结点前一个结点
+     ```js
+     function reverseBetweenNMPerfect(head, left, right) {
+       const dummyNode = new Node(-1, head); // 虚拟头结点
+       let preLeft = dummyNode; // 左截断结点前一个结点
 
-     for (let i = 0; i < left - 1; i++) {
-       preLeft = preLeft.next;
+       for (let i = 0; i < left - 1; i++) {
+         preLeft = preLeft.next;
+       }
+
+       let curr = preLeft.next;
+       let leftNode = curr;
+       for (let i = 0; i < right - left; i++) {
+         const next = curr.next;
+         curr.next = next.next;
+         next.next = leftNode;
+         leftNode = next;
+       }
+
+       preLeft.next = leftNode;
+
+       return dummyNode.next;
      }
+     ```
 
-     let curr = preLeft.next;
-     let leftNode = curr;
-     for (let i = 0; i < right - left; i++) {
-       const next = curr.next;
-       curr.next = next.next;
-       next.next = leftNode;
-       leftNode = next;
-     }
-
-     preLeft.next = leftNode;
-
-     return dummyNode.next;
-   }
-   ```
-
-   :::
+     :::
 
 2. 给你两个单链表的头结点 headA 和 headB ，两条链表可能相交也可能不相交，如果相交请你找出并返回两个单链表相交的起始结点，如果不存在相交结点，返回 null。
 
@@ -641,17 +641,17 @@ console.log(JSON.stringify(first, null, 2));
    - 解法 2
      :::details 点击查看参考答案
 
-   ```js
-   const getIntersectionNode_v2 = function (headA, headB) {
-     if (headA === null || headB === null) return null;
-     let pA = headA,
-       pB = headB;
-     while (pA !== pB) {
-       pA = pA === null ? headB : pA.next;
-       pB = pB === null ? headA : pB.next;
-     }
-     return pA;
-   };
-   ```
+     ```js
+     const getIntersectionNode_v2 = function (headA, headB) {
+       if (headA === null || headB === null) return null;
+       let pA = headA,
+         pB = headB;
+       while (pA !== pB) {
+         pA = pA === null ? headB : pA.next;
+         pB = pB === null ? headA : pB.next;
+       }
+       return pA;
+     };
+     ```
 
-   :::
+     :::
