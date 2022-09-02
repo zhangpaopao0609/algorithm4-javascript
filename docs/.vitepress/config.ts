@@ -108,7 +108,19 @@ function guideSidebar() {
         { text: '0. 本章指引', link: '/guide/chapter-02/0-guide' },
         {
           text: '1. 基础排序',
-          link: '/guide/chapter-02/1-basic',
+          link: '/guide/chapter-02/1-basic-sort',
+        },
+        {
+          text: '2. 归并排序',
+          link: '/guide/chapter-02/2-merge-sort',
+        },
+        {
+          text: '3. 快速排序',
+          link: '/guide/chapter-02/3-quick-sort',
+        },
+        {
+          text: '4. 堆排序',
+          link: '/guide/chapter-02/4-stack-sort',
         },
       ],
     },
