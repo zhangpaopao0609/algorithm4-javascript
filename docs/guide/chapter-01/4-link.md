@@ -487,7 +487,7 @@ console.log(JSON.stringify(first, null, 2));
 
 ## 4. leetcode 题目
 
-1. 给你单链表的头指针 head 和两个整数 left 和 right，其中 left <= right 。请你反转从位置 left 到位置 right 的链表结点，返回反转后的链表。
+1. 给你单链表的头指针 head 和两个整数 left 和 right，其中 left <= right 。请你反转从位置 left 到位置 right 的链表结点，返回反转后的链表。[点击查看 LeetCode 题目](https://leetcode.cn/problems/reverse-linked-list-ii/)
 
    - 解法 1
      :::details 点击查看参考答案
@@ -607,7 +607,7 @@ console.log(JSON.stringify(first, null, 2));
 
      :::
 
-2. 给你两个单链表的头结点 headA 和 headB ，两条链表可能相交也可能不相交，如果相交请你找出并返回两个单链表相交的起始结点，如果不存在相交结点，返回 null。
+2. 给你两个单链表的头结点 headA 和 headB ，两条链表可能相交也可能不相交，如果相交请你找出并返回两个单链表相交的起始结点，如果不存在相交结点，返回 null。[点击查看 LeetCode 题目](https://leetcode.cn/problems/intersection-of-two-linked-lists/)
 
    :::tip
    这道题目是算法里我最喜欢的了，没有之一，至于为什么，看下面的题解 2 就知道了
