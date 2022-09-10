@@ -28,9 +28,9 @@ function reverseBetweenNM(head, left, right) {
   // 2. 获取左截断结点
   leftNode = preLeft.next;
 
-  rightNode = preLeft;
+  rightNode = leftNode;
   // 3. 获取右截断结点
-  for (let i = 0; i < right - left + 1; i++) {
+  for (let i = 0; i < right - left; i++) {
     rightNode = rightNode.next;
   }
   // 4. 获取右截断结点后一个结点
