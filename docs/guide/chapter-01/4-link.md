@@ -57,15 +57,15 @@ n 个结点（a<sub>i</sub>（1≤i≤n）的存储映像）链结成一个链�
 
 1.1 中图 1 的第二种方式就是链式存储结构 —— 链表
 
-### 1.4 小结
+### 1.4 小结 {#linear-list-s}
 
 - 线性表是一种线性存储结构
 - 线性表顺序存储就是顺序表
 - 线性表链式存储就是链表（可以顺序存储，也可不顺序存储，可连续存储，也可不连续存储）
 
-## 2. 链表
+## 2. 链表 {#link-all}
 
-### 2.1. 基本定义
+### 2.1. 基本定义 {#link-desc}
 
 定义：链表是一种递归的数据结构，它或者为空（null），或者指向一个结点（node）的引用，**该结点含有一个泛型的<span style="color:red">元素</span>和一个<span style="color:red">指向另一条链表的引用</span>**。
 
@@ -81,7 +81,7 @@ n 个结点（a<sub>i</sub>（1≤i≤n）的存储映像）链结成一个链�
   <p class="image-title">图2：链表</p>
 </div>
 
-### 2.2. 链表分类
+### 2.2. 链表分类 {#link-classification}
 
 根据链表结点所含指针个数、指针指向和指针连接方式，可将链表分为单链表、循环链表、双向链表、二叉链表、十字链表、邻接表、邻接多重表等。
 
@@ -89,7 +89,7 @@ n 个结点（a<sub>i</sub>（1≤i≤n）的存储映像）链结成一个链�
 
 最常见的就是单链表，我们也主要对单链表进行学习。
 
-### 2.3. 链表基础操作
+### 2.3. 链表基础操作 {#link-basic-action}
 
 1. 用 js 表示一个结点
 
@@ -272,7 +272,7 @@ console.log(JSON.stringify(first, null, 2));
 
    具体的讲解放在了第 3 小节课后习题中。
 
-### 2.4 用链表实现栈和队列
+### 2.4 用链表实现栈和队列 {#link-stack-queue}
 
 前面我们用数组（顺序表）实现了栈和队列，这里我们用链表同样可以实现。
 
@@ -396,13 +396,13 @@ console.log(JSON.stringify(first, null, 2));
    }
    ```
 
-### 2.5. 小结
+### 2.5. 小结 {#link-summary}
 
 数组：顺序存储，数组中是元素
 
 链表：链式存储，链表中是结点
 
-## 3. 课后习题
+## 3. 课后习题 {#after-class-exercises}
 
 1. 假设 x 是一条链表的某个结点且不是尾结点。下面这条语句的效果是什么？
 
@@ -485,7 +485,7 @@ console.log(JSON.stringify(first, null, 2));
 
    :::
 
-## 4. leetcode 题目
+## 4. leetcode 题目 {#leetcode}
 
 1. 给你单链表的头指针 head 和两个整数 left 和 right，其中 left <= right 。请你反转从位置 left 到位置 right 的链表结点，返回反转后的链表。[点击查看 LeetCode 题目](https://leetcode.cn/problems/reverse-linked-list-ii/)
 

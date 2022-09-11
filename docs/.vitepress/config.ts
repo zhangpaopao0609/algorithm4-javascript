@@ -99,6 +99,7 @@ function guideSidebar() {
         },
         { text: '3. 时间和空间复杂度', link: '/guide/chapter-01/3-complexity' },
         { text: '4. 链表', link: '/guide/chapter-01/4-link' },
+        { text: '5. 本章小结', link: '/guide/chapter-01/5-summary' },
       ],
     },
     {
