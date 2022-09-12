@@ -10,7 +10,7 @@ returnToTop: true
 ## 本章内容 {#content}
 
 <div align='center'>
-  <img src="./images/0-guide/catalog.png" style="zoom:36%;" />
+  <img src="./images/01-guide/catalog.png" style="zoom:36%;" />
   <span class="comment-alg4-book">参见《算法 4》目录</span>
 </div>
 
