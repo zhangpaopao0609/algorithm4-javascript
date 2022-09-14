@@ -22,7 +22,7 @@ returnToTop: true
 因为算法是在不断地选择剩余元素之中的最小者，所以算法称为选择排序。还有另一个叫法，冒泡排序，因为每次都是将剩余元素之中的最小者 ”冒泡“ 似的排在了前面。
 
 <div align='center'>
-  <img src="./images/02-basic-sort/select-sort.png" style="zoom:50%;" />
+  <img src="./images/01-basic-sort/select-sort.png" style="zoom:50%;" />
   <p class="image-title">图1：选择排序</p>
 </div>
 
@@ -67,7 +67,7 @@ function SelectionSort(arr) {
 按照这样的思路进行排序，每一次都是将元素插入到已经有序的元素组中，因为，这种排序算法称为插入排序。
 
 <div align='center'>
-  <img src="./images/02-basic-sort/insert-sort.png" style="zoom:50%;" />
+  <img src="./images/01-basic-sort/insert-sort.png" style="zoom:50%;" />
   <p class="image-title">图2：插入排序</p>
 </div>
 
