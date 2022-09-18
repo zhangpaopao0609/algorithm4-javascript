@@ -9,7 +9,13 @@ returnToTop: true
 
 先来讲讲基础的排序算法。虽然都是基础的算法，但理解其中思路还是非常有必要的。
 
+:::tip
+在本章里将的所有排序，都是对数组进行排序
+:::
+
 ## 1. 选择排序 {#select-sort}
+
+选择排序实现步骤：
 
 - 找到数组中最小的那个元素
 - 将它和数组的第 1 个元素交换位置（如果第 1 个元素就是最小元素，那么就和自己交换）
@@ -25,6 +31,19 @@ returnToTop: true
   <img src="./images/01-basic-sort/select-sort.png" style="zoom:50%;" />
   <p class="image-title">图1：选择排序</p>
 </div>
+
+:::tip
+实现数组元素交换
+
+```js
+function swap(arr, i, j) {
+  const temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+```
+
+::::
 
 ```js
 function swap(arr, i, j) {
@@ -47,6 +66,8 @@ function SelectionSort(arr) {
   }
 }
 ```
+
+算法时间复杂度为：在最差情形下共需遍历 (n-1) + (n-2) …+ 1 次，即 (n-1)n/2，算法时间复杂度 O(N2)
 
 ## 2. 插入排序 {#insert-sort}
 
