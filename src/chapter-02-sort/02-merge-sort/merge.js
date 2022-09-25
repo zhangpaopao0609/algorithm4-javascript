@@ -4,17 +4,17 @@ function merge_tow_sorted_arr(arr1, arr2) {
   const l2 = arr2.length;
   const res = [];
 
-  // 指针 i 指向数组 1，指针 j 指向数组 2，指针 k 指向数组 res，
-  // 当 i 和 j 都越过了数组，意味着两个数组中的元素都排序完了，此时退出
-  for (let i = 0, j = 0, k = 0; i < l1 || j < l2; ) {
+  // 指针 p 指向数组 1，指针 q 指向数组 2，指针 k 指向数组 res，
+  // 当 p 和 q 都越过了数组，意味着两个数组中的元素都排序完了，此时退出
+  for (let p = 0, q = 0, k = 0; p < l1 || q < l2; ) {
     // 数组 1 已经没有元素了，所以直接放入数组 2 的元素
-    if (i === l1) res[k++] = arr2[j++];
+    if (p === l1) res[k++] = arr2[q++];
     // 数组 2 已经没有元素了，所以直接放入数组 1 的元素
-    else if (j === l2) res[k++] = arr1[i++];
+    else if (q === l2) res[k++] = arr1[p++];
     // 此时数组 1 的元素大于数组 2 的元素，所以放入数组 2 的元素
-    else if (arr1[i] > arr2[j]) res[k++] = arr2[j++];
+    else if (arr1[p] > arr2[q]) res[k++] = arr2[q++];
     // 此时数组 1 的元素小于或等于数组 2 的元素，所以放入数组 1 的元素
-    else res[k++] = arr1[i++];
+    else res[k++] = arr1[p++];
   }
 
   return res;
@@ -35,24 +35,24 @@ function merge_in_place(arr, l, mid, r) {
     keep[i] = arr[i];
   }
 
-  // 指针 i 指向 l~mid 部分，起始位置 l
-  // 指针 j 指向 mid+1~r 部分，起始位置 mid + 1
+  // 指针 p 指向 l~mid 部分，起始位置 l
+  // 指针 q 指向 mid+1~r 部分，起始位置 mid + 1
   // 指针 k 指向数组 arr，起始位置 l
-  // 当 i 越过 mid 并且 j 越过 r，
+  // 当 p 越过 mid 并且 q 越过 r，
   // 意味着 l~mid 和 mid+1~r 中的元素都排序完了，此时退出
-  for (let i = l, j = mid + 1, k = l; i <= mid || j <= r; ) {
+  for (let p = l, q = mid + 1, k = l; p <= mid || q <= r; ) {
     // l~mid 部分已经没有元素了，所以 arr k 位置放入 mid+1~r 部分的元素
     // 因为是原地赋值，所以 arr 原本的值会在归并的过程中被覆盖
     // 所以需要存储一个归并前的数组
-    if (i === mid + 1) arr[k++] = keep[j++];
+    if (p === mid + 1) arr[k++] = keep[q++];
     // mid+1~r 部分已经没有元素了，所以 arr k 位置放入 l~mid 部分的元素
-    else if (j === r + 1) arr[k++] = keep[i++];
+    else if (q === r + 1) arr[k++] = keep[p++];
     // 此时 l~mid 部分的元素大于 mid+1~r 部分的元素，
     // 所以 arr k 位置放入 mid+1~r 部分的元素
-    else if (keep[i] > keep[j]) arr[k++] = keep[j++];
+    else if (keep[p] > keep[q]) arr[k++] = keep[q++];
     // 此时 l~mid 部分的元素小于或等于 mid+1~r 部分的元素，
     // 所以 arr k 位置放入 l~mid 部分的元素
-    else arr[k++] = keep[i++];
+    else arr[k++] = keep[p++];
   }
 }
 
@@ -64,10 +64,10 @@ console.log(arr3);
 function merge_in_place_v2(arr, l, mid, r) {
   const keep = arr.slice(0);
 
-  for (let i = l, j = mid + 1, k = l; i <= mid || j <= r; ) {
-    if (i === mid + 1) arr[k++] = keep[j++];
-    else if (j === r + 1) arr[k++] = keep[i++];
-    else if (keep[i] > keep[j]) arr[k++] = keep[j++];
-    else arr[k++] = keep[i++];
+  for (let p = l, q = mid + 1, k = l; p <= mid || q <= r; ) {
+    if (p === mid + 1) arr[k++] = keep[q++];
+    else if (q === r + 1) arr[k++] = keep[p++];
+    else if (keep[p] > keep[q]) arr[k++] = keep[q++];
+    else arr[k++] = keep[p++];
   }
 }

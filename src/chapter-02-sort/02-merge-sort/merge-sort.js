@@ -4,11 +4,11 @@ function merge(arr, l, mid, r) {
     keep[i] = arr[i];
   }
 
-  for (let i = l, j = mid + 1, k = l; i <= mid || j <= r; ) {
-    if (i === mid + 1) arr[k++] = keep[j++];
-    else if (j === r + 1) arr[k++] = keep[i++];
-    else if (keep[i] > keep[j]) arr[k++] = keep[j++];
-    else arr[k++] = keep[i++];
+  for (let p = l, q = mid + 1, k = l; p <= mid || q <= r; ) {
+    if (p === mid + 1) arr[k++] = keep[q++];
+    else if (q === r + 1) arr[k++] = keep[p++];
+    else if (keep[p] > keep[q]) arr[k++] = keep[q++];
+    else arr[k++] = keep[p++];
   }
 }
 
@@ -30,7 +30,5 @@ function MergeSort(arr) {
 }
 
 const arr = [12, 1, 7, 4, 5, 2, 10, 6, 3, 11, 9, 8, 13];
-
 MergeSort(arr);
-
 console.log(arr);
