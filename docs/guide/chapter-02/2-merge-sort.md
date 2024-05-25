@@ -149,6 +149,15 @@ console.log(arr3);
   <p class="image-title">图3：归并排序</p>
 </div>
 
+
+:::details 点击查看 这里补充了一张更加形象归并排序图
+
+<div align='center'>
+  <img src="./images/02-merge-sort/merge-sort-better.png" style="zoom:60%;" />
+  <p class="image-title">图4：归并排序</p>
+</div>
+:::
+
 ```js
 function merge(arr, l, mid, r) {
   const keep = [];
