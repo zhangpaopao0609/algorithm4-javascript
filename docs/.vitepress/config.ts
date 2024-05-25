@@ -33,14 +33,14 @@ export default defineConfig({
 
     editLink: {
       pattern:
-        'https://github.com/ardor-zhang/Algorithm4-Javascript/tree/main/docs/:path',
+        'https://github.com/zhangpaopao0609/algorithm4-javascript/tree/main/docs/:path',
       text: '在 GitHub 上编辑此页',
     },
 
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/ardor-zhang/Algorithm4-Javascript',
+        link: 'https://github.com/zhangpaopao0609/algorithm4-javascript',
       },
     ],
 
@@ -67,7 +67,7 @@ function nav() {
     { text: 'Ardor', link: '/about/me', activeMatch: '^/about/' },
     {
       text: 'github',
-      link: 'https://github.com/ardor-zhang/Algorithm4-Javascript',
+      link: 'https://github.com/zhangpaopao0609/algorithm4-javascript',
     },
   ];
 }

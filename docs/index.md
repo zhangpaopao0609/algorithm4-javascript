@@ -17,7 +17,7 @@ hero:
       link: /guide/intro/getting-started
     - theme: alt
       text: View on GitHub
-      link: https://github.com/ardor-zhang/Algorithm4-Javascript
+      link: https://github.com/zhangpaopao0609/algorithm4-javascript
 
 features:
   - icon: 🏋️

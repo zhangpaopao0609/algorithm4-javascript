@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhangpaopao0609/Algorithm4-Javascript.git"
+    "url": "git+https://github.com/zhangpaopao0609/algorithm4-javascript.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhangpaopao0609/Algorithm4-Javascript/issues"
+    "url": "https://github.com/zhangpaopao0609/algorithm4-javascript/issues"
   },
-  "homepage": "https://github.com/zhangpaopao0609/Algorithm4-Javascript#readme",
+  "homepage": "https://github.com/zhangpaopao0609/algorithm4-javascript#readme",
   "devDependencies": {
     "@algolia/client-search": "^4.14.2",
     "@commitlint/cli": "^17.0.3",

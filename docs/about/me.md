@@ -16,7 +16,7 @@ returnToTop: true
 - 🌱 对 ts vue 有一些些的了解
 - 🤔 还在探索一些有趣的：UE4、Flutter
 - 💂‍♀️ 热爱分享，但搬砖中，精力有限，我会持续下去的
-- 📮 邮箱: ardor-zhang@outlook.com
+- 📮 邮箱: zhangpaopao0609@gmail.com
 
 这是我的公众号，虽是新手，但我希望自己能持续下去：
 

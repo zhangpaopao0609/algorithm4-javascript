@@ -1,4 +1,4 @@
-# Algorithm4-Javascript
+# algorithm4-javascript
 
 ## 说点
 
