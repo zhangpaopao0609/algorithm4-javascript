@@ -105,3 +105,6 @@ dist
 
 # mac 文件
 .DS_Store
+
+# 
+docs/.vitepress/cache
