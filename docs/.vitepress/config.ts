@@ -46,7 +46,7 @@ export default defineConfig({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2022-present Ardor Zhang',
+      copyright: 'Copyright © 2022-present zhangpaopao',
     },
 
     algolia: {
@@ -64,7 +64,7 @@ function nav() {
       link: '/guide/intro/getting-started',
       activeMatch: '^/guide/',
     },
-    { text: 'Ardor', link: '/about/me', activeMatch: '^/about/' },
+    { text: 'zhangpaopao', link: '/about/me', activeMatch: '^/about/' },
     {
       text: 'github',
       link: 'https://github.com/zhangpaopao0609/algorithm4-javascript',

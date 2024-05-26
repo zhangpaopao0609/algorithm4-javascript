@@ -42,6 +42,8 @@ returnToTop: true
   <p class="image-title">图2：切分确定一个元素的位置</p>
 </div>
 
+## 代码 {#code}
+
 然后我们来看一下基础的快排代码
 :::tip
 注意，我说的是基础哟
