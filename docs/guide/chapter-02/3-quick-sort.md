@@ -75,7 +75,7 @@ function partition(arr, l, r) {
     }
 
     // 这里要记得检查一下是否越界了
-    if (i >= j) {
+    if (i > j) {
       break;
     }
 
@@ -83,8 +83,8 @@ function partition(arr, l, r) {
     exch(arr, i, j);
   }
 
-  exch(arr, l, i - 1);
-  return i - 1;
+  exch(arr, l, j);
+  return j;
 }
 
 function sort(arr, l, r) {
@@ -171,7 +171,7 @@ function partition(arr, l, r) {
     }
 
     // 这里要记得检查一下是否越界了
-    if (i >= j) {
+    if (i > j) {
       break;
     }
 
@@ -179,8 +179,8 @@ function partition(arr, l, r) {
     exch(arr, i, j);
   }
 
-  exch(arr, l, i - 1);
-  return i - 1;
+  exch(arr, l, j);
+  return j;
 }
 
 function sort(arr, l, r) {
