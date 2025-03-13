@@ -16,6 +16,13 @@ export default defineConfig({
     ],
     [
       'script',
+      {
+        src: 'https://cdn.jsdelivr.net/npm/eruda',
+      },
+    ],
+    ['script', {}, 'eruda.init()'],
+    [
+      'script',
       {},
       `
       (function () {
