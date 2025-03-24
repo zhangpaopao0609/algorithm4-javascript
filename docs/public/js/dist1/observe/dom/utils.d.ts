@@ -1,0 +1,17 @@
+import { INodeInfo, IPatchNodeInfo } from '@tel/types/vd';
+import { INodeInfo as IProtocolNodeInfo } from 'protocol';
+export declare const IGNORE_TAGNAMES: Set<string>;
+export declare const IGNORE_ATTRIBUTES: Set<string>;
+export declare const ALLOWED_META_NAMES: Set<string>;
+export declare const ALLOWED_META_KEYS: Set<string>;
+export { getElementsSelector } from 'common-utils/element';
+export declare function getAttributes(el: HTMLElement): Record<string, string>;
+export declare function diff(prev: INodeInfo, next: INodeInfo): Pick<INodeInfo, 'id'> & Partial<INodeInfo>;
+export declare function toProtocolNodeInfo(info: IPatchNodeInfo | INodeInfo): IProtocolNodeInfo | null;
+export declare function getEventTarget(e: Event): Node;
+export declare const getText: (node: Node, maxDepth?: number | undefined, maxNodes?: number | undefined, maxLength?: number | undefined) => string;
+export declare const getImage: (node: HTMLElement, maxDepth?: number | undefined, maxNodes?: number | undefined, maxCount?: number | undefined) => string;
+export declare function getCssRulesString(s: CSSStyleSheet): string | null;
+export declare function absoluteToStylesheet(cssText: string | null, href: string): string;
+export declare function getHref(): string;
+export declare function getTarget(e: MouseEvent | TouchEvent | Event): EventTarget | null;

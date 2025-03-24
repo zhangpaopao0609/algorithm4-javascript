@@ -1,0 +1,34 @@
+import { IConfig, IEncryptInfo, IFeatureConfig } from '@tel/utils/config';
+import { ICOSInfo } from '@tel/utils/cos/cos';
+import { IStoredEvent } from '@tel/utils/storage';
+export interface IOrchestratorOptions {
+    uuid: string;
+    projectId: string;
+    sdkVersion: string;
+    platform?: string;
+    unloadedWebviewIds: string[];
+    hashText?: boolean;
+    isWhitelistMaskMode?: boolean;
+    exposureSelectorList?: string[];
+    featureConfig?: IFeatureConfig[];
+    onAppEnterForeground: (fn: (res: any) => void) => void;
+    onAppEnterBackground: (fn: () => void) => void;
+    reportUrl: string;
+    reporter: number;
+    cosInfo: ICOSInfo;
+    encrypt?: IEncryptInfo;
+    sync?: boolean;
+    cloudServiceProvider: number;
+    reportInterval: number;
+    serverClientTimeDiff: number;
+    coslessMode: boolean;
+    hashUid?: string | null;
+    weSessionId: string | null;
+    appVersion: string;
+    staticMeta: IConfig['staticMeta'];
+    wesessionMeta: IStoredEvent['sessionLifeTimeMeta'];
+    networkStatus: string;
+}
+export declare let isResetting: boolean;
+export declare function start(opt: IOrchestratorOptions): Promise<void>;
+export declare function reset(): Promise<void>;
