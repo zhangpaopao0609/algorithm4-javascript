@@ -29,7 +29,7 @@ export default defineConfig({
         'use strict';
 
         const SCRIPT_URLs = [
-            './js/dist/index.web.js',
+            './js/dist1/index.web.js',
         ];
         const param = {
             maskMode: 'no-mask', // 隐私策略, all-mask 或 no-mask, 详见：https://developers.weixin.qq.com/miniprogram/analysis/experience/sdk/privacy.html
