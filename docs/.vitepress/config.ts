@@ -34,7 +34,7 @@ export default defineConfig({
         const param = {
             maskMode: 'no-mask', // 隐私策略, all-mask 或 no-mask, 详见：https://developers.weixin.qq.com/miniprogram/analysis/experience/sdk/privacy.html
             recordCanvas: false,  // 若要采集canvas, 设为true
-            projectId: 'wxb77dab8a07ebd60e-vhgbLSMrf-qKLsIA', // 项目 ID，需替换为体验分析项目 ID
+            projectId: 'wxb77dab8a07ebd60e-1ffbh7oOk-Dr95Pa', // 项目 ID，需替换为体验分析项目 ID
             iframe: false, // 是否采集 iframe 页面
             console: true, // 是否采集 console 输出的错误日志
             network: true, // 是否采集网络错误
