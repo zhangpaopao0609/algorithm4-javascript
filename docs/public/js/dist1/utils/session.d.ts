@@ -1,6 +1,7 @@
 /// <reference types="types" />
 export declare const WXOBS_SESSION_DATA_KEY = "WXOBS_SSS";
 export declare const TIME_GAP_THRESHOLD: number;
+export declare const TIME_GAP_THRESHOLD_IN_MINIPROGRAM: number;
 interface IParam {
     projectKey: string;
     multiTab: boolean;

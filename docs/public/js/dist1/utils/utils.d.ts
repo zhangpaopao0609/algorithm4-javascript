@@ -20,7 +20,4 @@ export declare function filter<T>(arr: T[], cb: (item: T) => boolean): T[];
 export declare function filterEmptys<T>(arr: T[]): (T & {})[];
 export declare function isWasmSupported(): boolean;
 export declare function isDev(): boolean;
-/**
- * 从 ua 上去看当前是否处于小程序环境
- */
-export declare function isInMiniProgram(): boolean;
+export declare function isInMiniprogram(): boolean;
